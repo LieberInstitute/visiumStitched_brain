@@ -1,4 +1,4 @@
-# LieberInstitute/LS_visiumStitched
+# LS_visiumStitched
 
 This repository contains the data used to demonstrate the utility of [`visiumStitched`](https://github.com/LieberInstitute/visiumStitched).
 
