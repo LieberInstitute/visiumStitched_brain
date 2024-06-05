@@ -1,12 +1,11 @@
 **** Job starts ****
-Fri May 31 02:18:54 PM EDT 2024
+Wed Jun  5 11:27:28 AM EDT 2024
 **** JHPCE info ****
 User: neagles
-Job id: 7129475
+Job id: 7338712
 Job name: 01_prep_sample_info
-Node name: compute-140
+Node name: compute-143
 Task id: 
-Unloading conda_R/4.4
 Loading conda_R/4.4
 
 Currently Loaded Modules:
@@ -41,7 +40,7 @@ replacing previous import ‘dplyr::where’ by ‘imager::where’ when loading
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       US/Eastern
- date     2024-05-31
+ date     2024-06-05
  pandoc   3.1.13 @ /jhpce/shared/community/core/conda_R/4.4/bin/pandoc
 
 ─ Packages ───────────────────────────────────────────────────────────────────
@@ -240,7 +239,7 @@ replacing previous import ‘dplyr::where’ by ‘imager::where’ when loading
  vipor                  0.4.7       2023-12-18 [2] CRAN (R 4.4.0)
  viridis                0.6.5       2024-01-29 [2] CRAN (R 4.4.0)
  viridisLite            0.4.2       2023-05-02 [2] CRAN (R 4.4.0)
- visiumStitched       * 0.99.0      2024-05-29 [1] Github (LieberInstitute/visiumStitched@be5d24a)
+ visiumStitched       * 0.99.0      2024-06-03 [1] Github (LieberInstitute/visiumStitched@8006932)
  vroom                  1.6.5       2023-12-05 [2] CRAN (R 4.4.0)
  withr                  3.0.0       2024-01-16 [2] CRAN (R 4.4.0)
  XML                    3.99-0.16.1 2024-01-22 [2] CRAN (R 4.4.0)
@@ -257,4 +256,4 @@ replacing previous import ‘dplyr::where’ by ‘imager::where’ when loading
 
 ──────────────────────────────────────────────────────────────────────────────
 **** Job ends ****
-Fri May 31 02:20:52 PM EDT 2024
+Wed Jun  5 11:28:11 AM EDT 2024
