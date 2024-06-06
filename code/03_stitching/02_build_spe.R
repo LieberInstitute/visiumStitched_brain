@@ -95,7 +95,7 @@ p = spot_plot(
     multi_gene_method = 'pca', spatial = TRUE
 )
 
-pdf(file.path(plot_dir, 'white_matter.pdf'), width = 8, height = 4)
+pdf(file.path(plot_dir, 'white_matter.pdf'), width = 4, height = 8)
 print(p)
 dev.off()
 
