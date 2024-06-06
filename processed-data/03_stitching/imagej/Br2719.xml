@@ -260,10 +260,10 @@
 <trakem2>
 	<project 
 		id="0"
-		title="Br2719.xml"
-		unuid="1717600489017.1795522550.557341658"
-		mipmaps_folder="trakem2.1717600489017.1795522550.557341658/trakem2.mipmaps/"
-		storage_folder=""
+		title="Br2719"
+		unuid="1717682466767.1795522550.557341658"
+		mipmaps_folder="/Users/nick.eagles/Documents/LS_imagej/trakem2.1717682466767.1795522550.557341658/trakem2.mipmaps/"
+		storage_folder="/Users/nick.eagles/Documents/LS_imagej/"
 		mipmaps_format="4"
 		image_resizing_mode="Area downsampling"
 		first_mipmap_level_saved="0"
@@ -276,8 +276,8 @@
 		transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
 		title="Top Level"
 		links=""
-		layer_width="4613.0"
-		layer_height="2119.0"
+		layer_width="2118.0"
+		layer_height="4591.0"
 		rot_x="0.0"
 		rot_y="0.0"
 		rot_z="0.0"
@@ -312,9 +312,26 @@
 		>
 			<t2_patch
 				oid="8"
+				width="2082.0"
+				height="1921.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,2670.0)"
+				title="V13B23-283_A1.png"
+				links=""
+				type="4"
+				file_path="V13B23-283_A1.png"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="2082"
+				o_height="1921"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+			<t2_patch
+				oid="9"
 				width="2001.0"
 				height="1921.0"
-				transform="matrix(0.9981854244291152,0.06021510157150922,-0.06021510157150922,0.9981854244291152,116.62107307953409,0.5268909765398178)"
+				transform="matrix(-0.05725667228484713,0.9983594911047149,-0.9983594911047149,-0.05725667228484713,2118.680143236477,110.66417096102191)"
 				title="V13B23-283_C1.png"
 				links=""
 				type="4"
@@ -328,10 +345,10 @@
 			>
 			</t2_patch>
 			<t2_patch
-				oid="9"
+				oid="10"
 				width="2000.0"
 				height="1920.0"
-				transform="matrix(1.0,0.0,0.0,1.0,1441.0,172.0)"
+				transform="matrix(0.0,1.0,-1.0,-0.0,1941.0,1438.0)"
 				title="V13B23-283_D1.png"
 				links=""
 				type="4"
@@ -342,27 +359,31 @@
 				min="0.0"
 				max="255.0"
 				mres="32"
-				alpha_mask_id="2"
-			>
-			</t2_patch>
-			<t2_patch
-				oid="10"
-				width="2082.0"
-				height="1921.0"
-				transform="matrix(-0.0,-1.0,1.0,0.0,2692.0,2119.0)"
-				title="V13B23-283_A1.png"
-				links=""
-				type="4"
-				file_path="V13B23-283_A1.png"
-				style="fill-opacity:1.0;stroke:#ffff00;"
-				o_width="2082"
-				o_height="1921"
-				min="0.0"
-				max="255.0"
-				mres="32"
 				alpha_mask_id="1"
 			>
 			</t2_patch>
 		</t2_layer>
 	</t2_layer_set>
+	<t2_display id="7"
+		layer_id="5"
+		c_alphas="-1"
+		c_alphas_state="-1"
+		x="245"
+		y="25"
+		magnification="0.16666666666666666"
+		srcrect_x="0"
+		srcrect_y="0"
+		srcrect_width="2118"
+		srcrect_height="4578"
+		scroll_step="1"
+		filter_enabled="false"
+		filter_min_max_enabled="false"
+		filter_min="0"
+		filter_max="255"
+		filter_invert="false"
+		filter_clahe_enabled="false"
+		filter_clahe_block_size="127"
+		filter_clahe_histogram_bins="256"
+		filter_clahe_max_slope="3.0"
+	/>
 </trakem2>
