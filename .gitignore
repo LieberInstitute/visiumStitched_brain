@@ -4,4 +4,5 @@
 .Ruserdata
 processed-data/03_stitching/spe
 processed-data/04_example_data/spaceranger_subset
+processed-data/04_example_data/Visium_LS_spaceranger.zip
 processed-data/04_example_data/Visium_LS_spe.rds

@@ -14,6 +14,9 @@ library(HDF5Array)
 spe_in_dir = here('processed-data', '03_stitching', 'spe')
 spe_out_path = here('processed-data', '04_example_data', 'Visium_LS_spe.rds')
 sr_subset_dir = here('processed-data', '04_example_data', 'spaceranger_subset')
+sr_subset_zip = here(
+    'processed-data', '04_example_data', 'Visium_LS_spaceranger.zip'
+)
 sr_full_dir = here('processed-data', '01_spaceranger')
 info_path = here('processed-data', '03_stitching', 'sample_info.csv')
 
@@ -39,6 +42,9 @@ stopifnot(all(dir.exists(src_dir)))
 dest_dir = str_replace(src_dir, sr_full_dir, sr_subset_dir)
 sapply(dirname(dest_dir), dir.create, recursive = TRUE, showWarnings = FALSE)
 
+#   Create directory structure of contents to host, then create the zip archive
+#   from it
 all(file.symlink(src_dir, dest_dir))
+system(sprintf('zip -9 -r %s %s', sr_subset_zip, sr_subset_dir))
 
 session_info()

@@ -1,12 +1,11 @@
 **** Job starts ****
-Mon Jun 10 01:58:48 PM EDT 2024
+Mon Jun 10 02:41:57 PM EDT 2024
 **** JHPCE info ****
 User: neagles
-Job id: 7519889
+Job id: 7520479
 Job name: 01_example_data
-Node name: compute-099
+Node name: compute-129
 Task id: 
-Unloading conda_R/4.4
 Loading conda_R/4.4
 
 Currently Loaded Modules:
@@ -202,6 +201,49 @@ The following object is masked from ‘package:rhdf5’:
 /dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs 
                                                                                                                                    FALSE 
 [1] TRUE
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/raw_feature_bc_matrix/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/spatial/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/spatial/spatial_enrichment.csv (deflated 66%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/spatial/tissue_positions.csv (deflated 68%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/spatial/aligned_fiducials.jpg (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/spatial/detected_tissue_image.jpg (deflated 1%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/spatial/tissue_lowres_image.png (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/spatial/tissue_hires_image.png (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/spatial/scalefactors_json.json (deflated 29%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/raw_feature_bc_matrix/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/spatial/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/spatial/detected_tissue_image.jpg (deflated 1%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/spatial/tissue_lowres_image.png (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/spatial/aligned_fiducials.jpg (deflated 1%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/spatial/spatial_enrichment.csv (deflated 67%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/spatial/tissue_positions.csv (deflated 70%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/spatial/scalefactors_json.json (deflated 30%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/spatial/tissue_hires_image.png (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/spatial/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/spatial/scalefactors_json.json (deflated 30%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/spatial/tissue_hires_image.png (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/spatial/tissue_lowres_image.png (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/spatial/aligned_fiducials.jpg (deflated 1%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/spatial/tissue_positions.csv (deflated 66%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/spatial/spatial_enrichment.csv (deflated 66%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/spatial/detected_tissue_image.jpg (deflated 1%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/raw_feature_bc_matrix/ (stored 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
+  adding: dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
 ─ Session info ───────────────────────────────────────────────────────────────
  setting  value
  version  R version 4.4.0 Patched (2024-05-22 r86590)
@@ -293,4 +335,4 @@ The following object is masked from ‘package:rhdf5’:
 
 ──────────────────────────────────────────────────────────────────────────────
 **** Job ends ****
-Mon Jun 10 02:00:06 PM EDT 2024
+Mon Jun 10 02:42:44 PM EDT 2024
