@@ -1,11 +1,12 @@
 **** Job starts ****
-Thu Jun  6 10:27:31 AM EDT 2024
+Mon Jun 17 10:50:55 AM EDT 2024
 **** JHPCE info ****
 User: neagles
-Job id: 7390645
+Job id: 7612282
 Job name: 02_build_spe
-Node name: compute-097
+Node name: compute-151
 Task id: 
+Unloading conda_R/4.4
 Loading conda_R/4.4
 
 Currently Loaded Modules:
@@ -28,8 +29,6 @@ here() starts at /dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStit
 Registered S3 method overwritten by 'imager':
   method      from
   plot.imlist     
-Warning message:
-replacing previous import ‘dplyr::where’ by ‘imager::where’ when loading ‘visiumStitched’ 
 
 Attaching package: ‘Matrix’
 
@@ -194,18 +193,18 @@ The following object is masked from ‘package:rhdf5’:
     h5ls
 
 Loading required package: scuttle
-2024-06-06 10:28:27.049114 - Processing ImageJ outputs
+2024-06-17 10:51:23.03014 - Processing ImageJ outputs
 Warning messages:
 1: In read_xml.character(this_sample_info$imagej_xml_path[1]) :
   Attribute o_width of element t2_patch: already defined [501]
 2: In read_xml.character(this_sample_info$imagej_xml_path[1]) :
   Attribute o_height of element t2_patch: already defined [501]
-2024-06-06 10:28:34.453977 - Building raw SPE
+2024-06-17 10:51:28.823245 - Building raw SPE
 Building SpatialExperiment using capture area as sample ID
 Overwriting imgData(spe) with merged images (one per group)
-2024-06-06 10:28:53.173206 - Adding overlap info
-2024-06-06 10:28:55.511818 - Running quickCluster()
-2024-06-06 10:29:23.18383 - Running computeSumFactors()
+2024-06-17 10:51:39.176673 - Adding overlap info
+2024-06-17 10:51:40.519257 - Running quickCluster()
+2024-06-17 10:52:07.430289 - Running computeSumFactors()
 Quick cluster table:
 
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
@@ -217,8 +216,8 @@ Quick cluster table:
 sizeFactors() summary:
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
  0.00098  0.14523  0.49252  1.00000  1.45191 15.00474 
-2024-06-06 10:30:19.296296 - Running logNormCounts()
-2024-06-06 10:30:20.234365 - Saving HDF5-backed object to control memory later
+2024-06-17 10:52:55.27047 - Running logNormCounts()
+2024-06-17 10:52:55.755402 - Saving HDF5-backed object to control memory later
 null device 
           1 
 ─ Session info ───────────────────────────────────────────────────────────────
@@ -231,7 +230,7 @@ null device
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       US/Eastern
- date     2024-06-06
+ date     2024-06-17
  pandoc   3.1.13 @ /jhpce/shared/community/core/conda_R/4.4/bin/pandoc
 
 ─ Packages ───────────────────────────────────────────────────────────────────
@@ -445,7 +444,7 @@ null device
  vipor                  0.4.7       2023-12-18 [2] CRAN (R 4.4.0)
  viridis                0.6.5       2024-01-29 [2] CRAN (R 4.4.0)
  viridisLite            0.4.2       2023-05-02 [2] CRAN (R 4.4.0)
- visiumStitched       * 0.99.0      2024-06-03 [1] Github (LieberInstitute/visiumStitched@8006932)
+ visiumStitched       * 0.99.0      2024-06-17 [1] Github (LieberInstitute/visiumStitched@8c5c935)
  vroom                  1.6.5       2023-12-05 [2] CRAN (R 4.4.0)
  withr                  3.0.0       2024-01-16 [2] CRAN (R 4.4.0)
  XML                    3.99-0.16.1 2024-01-22 [2] CRAN (R 4.4.0)
@@ -462,4 +461,4 @@ null device
 
 ──────────────────────────────────────────────────────────────────────────────
 **** Job ends ****
-Thu Jun  6 10:33:28 AM EDT 2024
+Mon Jun 17 10:54:47 AM EDT 2024
