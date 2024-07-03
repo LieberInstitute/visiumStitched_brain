@@ -35,6 +35,7 @@ precast_paths = here(
 )
 
 dir.create(dirname(spe_out_path), showWarnings = FALSE)
+stopifnot(dirname(imagej_out_image) == dirname(imagej_out_xml))
 
 ################################################################################
 #   Prepare SpatialExperiment
@@ -97,11 +98,19 @@ sapply(dirname(dest_dir), dir.create, recursive = TRUE, showWarnings = FALSE)
 #   Create directory structure of spaceranger contents to host, then create the
 #   zip archive from it
 all(file.symlink(src_dir, dest_dir))
-system(sprintf('zip -9 -r %s %s', sr_subset_zip, sr_subset_dir))
+
+setwd(sr_subset_dir)
+system(sprintf('zip -9 -r %s .', sr_subset_zip))
 
 #   Zip ImageJ outputs
+setwd(dirname(imagej_out_image))
 system(
-    sprintf('zip -9 %s %s %s', imagej_out_zip, imagej_out_xml, imagej_out_image)
+    sprintf(
+        'zip -9 %s %s %s',
+        imagej_out_zip,
+        basename(imagej_out_xml),
+        basename(imagej_out_image)
+    )
 )
 
 session_info()
