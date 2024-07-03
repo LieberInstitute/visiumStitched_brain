@@ -5,8 +5,8 @@
 #SBATCH -c 1
 #SBATCH -t 1-00:00:00
 #SBATCH --array=2,4,8
-#SBATCH -o ../../processed-data/03_stitching/logs/03_precast.log
-#SBATCH -e ../../processed-data/03_stitching/logs/03_precast.log
+#SBATCH -o ../../processed-data/03_stitching/logs/03_precast_%a.log
+#SBATCH -e ../../processed-data/03_stitching/logs/03_precast_%a.log
 
 set -e
 
