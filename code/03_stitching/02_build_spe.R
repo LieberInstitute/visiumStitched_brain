@@ -14,6 +14,7 @@ info_path = here('processed-data', '03_stitching', 'sample_info.csv')
 coords_dir = here('processed-data', '03_stitching', 'spe_inputs')
 spe_dir = here('processed-data', '03_stitching', 'spe')
 plot_dir = here('plots', '03_stitching')
+gtf_path = "/dcs04/lieber/lcolladotor/annotationFiles_LIBD001/10x/refdata-gex-GRCh38-2024-A/genes/genes.gtf.gz"
 
 wm_genes = c("MBP", "GFAP", "PLP1", "AQP4")
 
@@ -33,14 +34,7 @@ prep_imagej_coords(sample_info, coords_dir)
 prep_imagej_image(sample_info, coords_dir)
 
 message(Sys.time(), " - Building raw SPE")
-spe = build_spe(sample_info, coords_dir = coords_dir)
-colnames(spe) = spe$key
-
-#   Add overlap info, using highest UMI count by capture area to determine
-#   which to show (for plots) in case of overlaps
-message(Sys.time(), " - Adding overlap info")
-spe$sum_umi = Matrix::colSums(assays(spe)$counts)
-spe = add_overlap_info(spe, "sum_umi")
+spe = build_spe(sample_info, coords_dir = coords_dir, reference_gtf = gtf_path)
 
 ################################################################################
 #   Filter, log normalize, and save
