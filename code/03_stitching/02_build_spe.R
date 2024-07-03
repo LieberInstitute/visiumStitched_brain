@@ -82,7 +82,7 @@ spe = saveHDF5SummarizedExperiment(
 #   Plot white matter genes to verify smooth transition across capture areas
 ################################################################################
 
-wm_genes = rownames(spe)[match(wm_genes, rowData(spe)$symbol)]
+wm_genes = rowData(spe)$gene_id[match(wm_genes, rowData(spe)$gene_name)]
 p = spot_plot(
     spe, sample_id = unique(spe$sample_id)[1], var_name = wm_genes,
     is_discrete = FALSE, assayname = 'logcounts', minCount = 0,

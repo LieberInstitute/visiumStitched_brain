@@ -1,12 +1,11 @@
 **** Job starts ****
-Mon Jun 17 10:50:55 AM EDT 2024
+Wed Jul  3 11:58:21 AM EDT 2024
 **** JHPCE info ****
 User: neagles
-Job id: 7612282
+Job id: 8167542
 Job name: 02_build_spe
-Node name: compute-151
+Node name: compute-091
 Task id: 
-Unloading conda_R/4.4
 Loading conda_R/4.4
 
 Currently Loaded Modules:
@@ -193,18 +192,23 @@ The following object is masked from ‘package:rhdf5’:
     h5ls
 
 Loading required package: scuttle
-2024-06-17 10:51:23.03014 - Processing ImageJ outputs
+2024-07-03 11:59:09.692196 - Processing ImageJ outputs
 Warning messages:
 1: In read_xml.character(this_sample_info$imagej_xml_path[1]) :
   Attribute o_width of element t2_patch: already defined [501]
 2: In read_xml.character(this_sample_info$imagej_xml_path[1]) :
   Attribute o_height of element t2_patch: already defined [501]
-2024-06-17 10:51:28.823245 - Building raw SPE
+2024-07-03 11:59:17.962839 - Building raw SPE
 Building SpatialExperiment using capture area as sample ID
+2024-07-03 11:59:18.685933 SpatialExperiment::read10xVisium: reading basic data from SpaceRanger
+2024-07-03 11:59:34.508397 read10xVisiumAnalysis: reading analysis output from SpaceRanger
+2024-07-03 11:59:37.784154 add10xVisiumAnalysis: adding analysis output from SpaceRanger
+2024-07-03 11:59:38.621668 rtracklayer::import: reading the reference GTF file
+2024-07-03 12:00:43.769004 adding gene information to the SPE object
+2024-07-03 12:00:43.854353 adding information used by spatialLIBD
 Overwriting imgData(spe) with merged images (one per group)
-2024-06-17 10:51:39.176673 - Adding overlap info
-2024-06-17 10:51:40.519257 - Running quickCluster()
-2024-06-17 10:52:07.430289 - Running computeSumFactors()
+2024-07-03 12:00:50.035744 - Running quickCluster()
+2024-07-03 12:01:16.179723 - Running computeSumFactors()
 Quick cluster table:
 
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
@@ -216,8 +220,8 @@ Quick cluster table:
 sizeFactors() summary:
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
  0.00098  0.14523  0.49252  1.00000  1.45191 15.00474 
-2024-06-17 10:52:55.27047 - Running logNormCounts()
-2024-06-17 10:52:55.755402 - Saving HDF5-backed object to control memory later
+2024-07-03 12:02:08.541328 - Running logNormCounts()
+2024-07-03 12:02:09.349563 - Saving HDF5-backed object to control memory later
 null device 
           1 
 ─ Session info ───────────────────────────────────────────────────────────────
@@ -230,7 +234,7 @@ null device
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       US/Eastern
- date     2024-06-17
+ date     2024-07-03
  pandoc   3.1.13 @ /jhpce/shared/community/core/conda_R/4.4/bin/pandoc
 
 ─ Packages ───────────────────────────────────────────────────────────────────
@@ -444,7 +448,7 @@ null device
  vipor                  0.4.7       2023-12-18 [2] CRAN (R 4.4.0)
  viridis                0.6.5       2024-01-29 [2] CRAN (R 4.4.0)
  viridisLite            0.4.2       2023-05-02 [2] CRAN (R 4.4.0)
- visiumStitched       * 0.99.0      2024-06-17 [1] Github (LieberInstitute/visiumStitched@8c5c935)
+ visiumStitched       * 0.99.0      2024-07-03 [1] Github (LieberInstitute/visiumStitched@34637c6)
  vroom                  1.6.5       2023-12-05 [2] CRAN (R 4.4.0)
  withr                  3.0.0       2024-01-16 [2] CRAN (R 4.4.0)
  XML                    3.99-0.16.1 2024-01-22 [2] CRAN (R 4.4.0)
@@ -461,4 +465,4 @@ null device
 
 ──────────────────────────────────────────────────────────────────────────────
 **** Job ends ****
-Mon Jun 17 10:54:47 AM EDT 2024
+Wed Jul  3 12:05:14 PM EDT 2024
