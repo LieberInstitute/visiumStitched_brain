@@ -10,6 +10,7 @@ library(sessioninfo)
 library(Matrix)
 library(SpatialExperiment)
 library(HDF5Array)
+library(scater)
 
 spe_in_dir = here('processed-data', '03_stitching', 'spe')
 spe_out_path = here('processed-data', '04_example_data', 'Visium_LS_spe.rds')
@@ -28,21 +29,63 @@ imagej_out_xml = here(
 imagej_out_zip = here(
     'processed-data', '04_example_data', 'Visium_LS_imagej_out.zip'
 )
+precast_paths = here(
+    'processed-data', '03_stitching', 'precast_out',
+    sprintf('PRECAST_k%s.csv', c(2, 4, 8))
+)
 
 dir.create(dirname(spe_out_path), showWarnings = FALSE)
+
+################################################################################
+#   Prepare SpatialExperiment
+################################################################################
 
 #   Only include logcounts as a sparse in-memory matrix. Otherwise, save the
 #   object as is
 spe = loadHDF5SummarizedExperiment(spe_in_dir)
 assays(spe) = list(logcounts = as(assays(spe)$logcounts, "dgCMatrix"))
+
+#   Read in PRECAST results for all values of k and combine in wide format
+cluster_df_list = list()
+for (precast_path in precast_paths) {
+    cluster_df_list[[precast_path]] = read_csv(
+            precast_path, show_col_types = FALSE
+        ) |>
+        select(key, cluster) |>
+        mutate(
+            k = as.numeric(
+                str_extract(precast_path, 'PRECAST_k([0-9]+)', group = 1)
+            )
+        )
+}
+cluster_df = do.call(rbind, cluster_df_list) |>
+    pivot_wider(
+        names_from = k, values_from = cluster, names_prefix = 'precast_k'
+    )
+
+#   Add PRECAST results to colData
+temp = colnames(spe)
+colData(spe) = colData(spe) |>
+    as_tibble() |>
+    left_join(cluster_df, by = 'key') |>
+    DataFrame()
+colnames(spe) = temp
+
+#   Add 10 PCs to reducedDims()
+spe = runPCA(spe, ncomponents = 10, name = 'PCA')
+
 saveRDS(spe, spe_out_path)
+
+################################################################################
+#   Prepare zip files: Spaceranger and ImageJ outputs
+################################################################################
 
 sample_info = read_csv(info_path, show_col_types = FALSE)
 
 src_dir = as.character(
     outer(
         dirname(sample_info$spaceranger_dir), 
-        c('raw_feature_bc_matrix', 'spatial'),
+        c('raw_feature_bc_matrix', 'spatial', 'analysis'),
         FUN = file.path
     )
 )
