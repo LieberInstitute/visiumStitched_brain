@@ -3,9 +3,6 @@ library("markdown") ## Hm... to avoid this error
 # 2021-11-11T05:30:49.941401+00:00 shinyapps[5096402]: Listening on http://127.0.0.1:32863
 # 2021-11-11T05:30:50.218127+00:00 shinyapps[5096402]: Warning: Error in loadNamespace: there is no package called ‘markdown’
 # 2021-11-11T05:30:50.222437+00:00 shinyapps[5096402]:   111: <Anonymous>
-library("here")
-
-spe_path = here('processed-data', '04_example_data', 'Visium_LS_spe.rds')
 
 ## spatialLIBD uses golem
 options("golem.app.prod" = TRUE)
@@ -14,7 +11,7 @@ options("golem.app.prod" = TRUE)
 options(repos = BiocManager::repositories())
 
 ## Load the spe object
-spe <- readRDS(spe_path)
+spe <- readRDS('Visium_LS_spe.rds')
 vars <- colnames(colData(spe))
 
 ## Deploy the website
