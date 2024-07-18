@@ -5,17 +5,7 @@ This document describes the spot-level portion of the shiny web application made
 
 ## Slides and videos
 
-You might find the following slides useful for understanding the features from this part of the web application. 
-
-<iframe class="speakerdeck-iframe" frameborder="0" src="https://speakerdeck.com/player/dde92cd6dfc04f9589770e074915658f" title="BioTuring_spatialLIBD" allowfullscreen="true" style="border: 0px; background: padding-box padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 560 / 420;" data-ratio="1.3333333333333333"></iframe>
-
-These slides were part of our 2021-04-27 webinar for BioTuring that you can watch on YouTube:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/S8884Kde-1U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-A recording of an earlier version of this talk is also available on YouTube.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/aD2JU-vUv54" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+TODO
 
 You might also be interested in this video demonstration of `spatialLIBD` for the [LIBD rstats club](http://research.libd.org/rstatsclub/).
 
@@ -27,10 +17,10 @@ Before the documentation, this tab displays the [SpatialExperiment](https://bioc
 
 ```{r}
 ## Check that you have a recent version of spatialLIBD installed
-stopifnot(packageVersion("spatialLIBD") >= "1.11.6")
+stopifnot(packageVersion("spatialLIBD") >= "1.17.6")
 
 ## Download spe data
-spe <- spatialLIBD::fetch_data(type = "spatialDLPFC_Visium")
+spe <- spatialLIBD::fetch_data(type = "Visium_LS_spe")
 ```
 
 Throughout the rest of this document, we'll refer to this object by the name `spe`.
@@ -39,27 +29,14 @@ Throughout the rest of this document, we'll refer to this object by the name `sp
 
 * `Samples to plot`: which sample to plot on the tabs that do not have _grid_ on their name.
 * `Discrete variable to plot`: which discrete variable (typically with the cluster labels) to visualize. We include the clusters:
-  - `BayesSpace`: the main spatial domain resolution used in this website.
   - `ManualAnnotation`: your own manual annotation of the spots.
-  - `SpaceRanger_*`: graph based and k-means clustering results produced by `spaceranger` one Visium slide at a time. They are not guaranteed to be the same across samples, like cluster 1 in sample 1 might mean something completely different to cluster 1 in sample 2.
-  - `scran_*`: quality control checks. For example, `scran_low_lib_size` shows spots that failed the default library size due to having low values.
-  - `BayesSpace_harmony_*`: BayesSpace spatial domain results after performing batch correction by sample ID using [harmony](https://github.com/immunogenomics/harmony).
-  - `BayesSpace_pca_*`: BayesSpace spatial domain results after computing PCs across all samples, but without the `harmony` batch correction.
-  - `graph_based_PCA_within`: shared nearest neighbors cluster results with 10 neighbors cut at 7 after computing PCs within each sample. It is similar to `SpaceRanger_10x_graphclust` but was computed with R/Bioconductor packages.
-  - `PCA_SNN_k10_k7`: shared nearest neighbors cluster results with 10 neighbors cut at 7, using the PCs computed across all samples, but without the `harmony` batch correction.
-  - `Harmony_SNN_k10_k7`: shared nearest neighbors cluster results with 10 neighbors cut at 7, using `harmony` batch corrected data.
-  - `wrinkle_type`: manual annotation of spots overlapping tissue wrinkles, categorized spatially for just `Br6522_ant`, `Br6522_mid`, and `Br8667_post`.
-  - `manual_layer_label`: manual annotation of spots by histological layer of the DLPFC, for just `Br6522_ant`, `Br6522_mid`, and `Br8667_post`.
-* `Reduced dimensions`: which reduced dimension to visualize on the `clusters (interactive)` tab. Only the first two dimensions will be shown.
+  - `scran_quick_cluster`: added by `scran::quickCluster()` in preparation for performing log normalization.
+  - `precast_k*`: cluster assignments computed by running PRECAST at each specified value of k.
 * `Continuous variable(s) to plot`: which gene(s) or continuous variable(s) (such as the cell count, the ratio of the mitochondrial chromosome expression) to visualize in the gene tabs as well as on the `clusters (interactive)` tab. Multiple choices may be selected, in which case "Multi-gene method" controls the method used to combine information from all selected variables. Details:
   - `sum_umi`: sum of UMI counts across a spot.
   - `sum_gene`: number of genes with non-zero counts in a spot.
   - `expr_chrM`: sum of chrM counts in a spot.
   - `expr_chrM_ratio`: ratio of `expr_chrM / sum_umi`
-  - `VistoSeg_*`: the cell counts (`count`) and the proportion of the spot (`proportion`) covered by cells. `count_deprecated` is from an earlier version of VistoSeg that was counting each set of segmented pixels instead of checking for a minimum size and for the centroid to be included in the spot.
-  - `cellpose_count`: the cell counts estimated by segmenting the DAPI channel of the IF images for Visium-SPG samples.
-  - Spot deconvolution results using snRNA-seq data as input at the `layer_*` or `broad_*` cell type level. We provide results for [`tangram`](https://doi.org/10.1038/s41592-021-01264-7), [`cell2location`](https://doi.org/10.1038/s41587-021-01139-4) and [`SPOTlight`](https://doi.org/10.1093/nar/gkab043).
-  - `cart_*`: deconvolved cell-type counts as computed by a `DecisionTreeClassifier` (CART) trained to classify cell types using fluorescence intensities from Visium-SPG IF images.
 * `Multi-gene method`: when selecting more than one continuous variable, the method used to combine information from all selected variables. See [the multi gene plots vignette](https://research.libd.org/spatialLIBD/articles/multi_gene_plots.html) for more information about these methods for combining multiple continuous variables.
   * `z_score`: to summarize multiple continuous variables, each is normalized to represent a Z-score. The multiple scores are then averaged.
   * `pca`: PCA dimension reduction is conducted on the matrix formed by the continuous variables, and the first PC is then used and multiplied by -1 if needed to have the majority of the values for PC1 to be positive. 
@@ -68,7 +45,7 @@ Throughout the rest of this document, we'll refer to this object by the name `sp
 * `Image name`: the name of the background image to use. You can edit this image on the `Edit image` tab.
 * `Spot transparency level`: the transparency of the spots in the visualizations. It can be useful if the spot colors are blocking the background image.
 * `Minimum count value`: Values from the selected `continuous variable to plot` at or below this threshold will not be displayed.
-* `Gene color scale`: Whether to use the color blind friendly palette (`viridis`) or to use a custom palette that we used for our `paper`. Other options from the [viridisLite R package](https://sjmgarnier.github.io/viridisLite/reference/viridis.html#details) are also supported.
+* `Gene color scale`: Whether to use the color blind friendly palette (`viridis`) or other options from the [viridisLite R package](https://sjmgarnier.github.io/viridisLite/reference/viridis.html#details).
 * `Gene color direction`: whether colors should be ordered from darkest to lightest or in the reverse direction.
 
 We will cover the download button and upload CSV options at the end of this document.
@@ -154,18 +131,8 @@ spatialLIBD::run_app()
 
 ## For the full R code, please check the spatialLIBD::run_app() documentation
 ## at http://research.libd.org/spatialLIBD/reference/run_app.html#examples for
-## running https://libd.shinyapps.io/spatialDLPFC_Visium_Sp09 locally. See also:
-## * https://github.com/LieberInstitute/spatialDLPFC/tree/main/code/deploy_app_k09
-## * https://github.com/LieberInstitute/spatialDLPFC/tree/main/code/deploy_app_k09_position
-## * https://github.com/LieberInstitute/spatialDLPFC/tree/main/code/deploy_app_k09_position_noWM
-## * https://github.com/LieberInstitute/spatialDLPFC/tree/main/code/deploy_app_k16
-## * https://github.com/LieberInstitute/spatialDLPFC/tree/main/code/analysis_IF/03_spatialLIBD_app
-
-## Note that the original spe object shown here uses 6.97 GB
-## You can follow the steps at 
-## https://github.com/LieberInstitute/spatialDLPFC/blob/main/code/analysis/01_build_spe/03_add_deconvolution.R
-## to further subset this object. Basically, this involves dropping the
-## counts and keeping only the "lowres" images.
+## running https://libd.shinyapps.io/Visium_LS locally. See also:
+## * https://github.com/LieberInstitute/LS_visiumStitched/tree/devel/code/04_example_data
 ```
 
-This will require about 3GB of RAM to run on the server side, though potentially more, specially when using the `clusters (interactive)` tab.
+This will require about 2GB of RAM to run on the server side, though potentially more, especially when using the `clusters (interactive)` tab.
