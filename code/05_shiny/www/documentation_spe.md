@@ -20,7 +20,7 @@ Before the documentation, this tab displays the [SpatialExperiment](https://bioc
 stopifnot(packageVersion("spatialLIBD") >= "1.17.6")
 
 ## Download spe data
-spe <- spatialLIBD::fetch_data(type = "Visium_LS_spe")
+spe <- spatialLIBD::fetch_data(type = "visiumStitched_brain_spe")
 ```
 
 Throughout the rest of this document, we'll refer to this object by the name `spe`.
@@ -131,7 +131,7 @@ spatialLIBD::run_app()
 
 ## For the full R code, please check the spatialLIBD::run_app() documentation
 ## at http://research.libd.org/spatialLIBD/reference/run_app.html#examples for
-## running https://libd.shinyapps.io/Visium_LS locally. See also:
+## running https://libd.shinyapps.io/visiumStitched_brain locally. See also:
 ## * https://github.com/LieberInstitute/LS_visiumStitched/tree/devel/code/04_example_data
 ```
 

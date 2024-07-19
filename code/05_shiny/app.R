@@ -11,7 +11,7 @@ options("golem.app.prod" = TRUE)
 options(repos = BiocManager::repositories())
 
 ## Load the spe object
-spe <- readRDS('Visium_LS_spe.rds')
+spe <- readRDS('visiumStitched_brain_spe.rds')
 vars <- colnames(colData(spe))
 
 ## Deploy the website
@@ -20,7 +20,7 @@ spatialLIBD::run_app(
     sce_layer = NULL,
     modeling_results = NULL,
     sig_genes = NULL,
-    title = "Visium Lateral Septum",
+    title = "visiumStitched_brain",
     spe_discrete_vars = c(
         "ManualAnnotation",
         vars[grep("^precast_k[248]$", vars)],

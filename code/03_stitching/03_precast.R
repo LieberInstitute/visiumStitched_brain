@@ -42,7 +42,7 @@ seu_list = lapply(
             #   Bring into memory to greatly improve speed
             counts = as(assays(small_spe)$counts, "dgCMatrix"),
             meta.data = as.data.frame(colData(small_spe)),
-            project = 'Visium_LS'
+            project = 'visiumStitched_brain'
         )
     }
 )

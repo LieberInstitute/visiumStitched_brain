@@ -1,4 +1,4 @@
-# LS_visiumStitched
+# visiumStitched_brain
 
 ## Overview
 
