@@ -17,7 +17,7 @@ vars <- colnames(colData(spe))
 ## Deploy the website
 spatialLIBD::run_app(
     spe,
-    title = "Visium Lateral Septum",
+    title = "visiumStitched_brain",
     spe_discrete_vars = c(
         "ManualAnnotation",
         vars[grep("^precast_k[248]$", vars)],
