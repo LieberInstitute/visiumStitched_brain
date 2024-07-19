@@ -17,6 +17,9 @@ vars <- colnames(colData(spe))
 ## Deploy the website
 spatialLIBD::run_app(
     spe,
+    sce_layer = NULL,
+    modeling_results = NULL,
+    sig_genes = NULL,
     title = "Visium Lateral Septum",
     spe_discrete_vars = c(
         "ManualAnnotation",
@@ -30,5 +33,6 @@ spatialLIBD::run_app(
         "expr_chrM_ratio"
     ),
     default_cluster = "precast_k2",
-    docs_path = "www"
+    docs_path = "www",
+    is_stitched = TRUE
 )
