@@ -51,5 +51,5 @@ The code in this repository follows the organization from https://github.com/Lie
 Check out [this guide](http://research.libd.org/visiumStitched/articles/full_demo.html) to using
 `visiumStitched`, which enabled the integration of all three capture areas for this project.
 
-TODO: embed YT video demonstrating how to use Fiji
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kFLtpK3qbSY?si=u6bIKY5U9yccx62R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
