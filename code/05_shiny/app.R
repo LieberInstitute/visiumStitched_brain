@@ -11,7 +11,7 @@ options("golem.app.prod" = TRUE)
 options(repos = BiocManager::repositories())
 
 ## Load the spe object
-spe <- readRDS('Visium_LS_spe.rds')
+spe <- readRDS('visiumStitched_brain_spe.rds')
 vars <- colnames(colData(spe))
 
 ## Deploy the website

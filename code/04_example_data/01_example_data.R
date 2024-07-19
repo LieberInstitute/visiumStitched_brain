@@ -13,10 +13,10 @@ library(HDF5Array)
 library(scater)
 
 spe_in_dir = here('processed-data', '03_stitching', 'spe')
-spe_out_path = here('processed-data', '04_example_data', 'Visium_LS_spe.rds')
+spe_out_path = here('processed-data', '04_example_data', 'visiumStitched_brain_spe.rds')
 sr_subset_dir = here('processed-data', '04_example_data', 'spaceranger_subset')
 sr_subset_zip = here(
-    'processed-data', '04_example_data', 'Visium_LS_spaceranger.zip'
+    'processed-data', '04_example_data', 'visiumStitched_brain_spaceranger.zip'
 )
 sr_full_dir = here('processed-data', '01_spaceranger')
 info_path = here('processed-data', '03_stitching', 'sample_info.csv')
@@ -27,7 +27,7 @@ imagej_out_xml = here(
     'processed-data', '03_stitching', 'imagej', 'Br2719.xml'
 )
 imagej_out_zip = here(
-    'processed-data', '04_example_data', 'Visium_LS_imagej_out.zip'
+    'processed-data', '04_example_data', 'visiumStitched_brain_imagej_out.zip'
 )
 precast_paths = here(
     'processed-data', '03_stitching', 'precast_out',
