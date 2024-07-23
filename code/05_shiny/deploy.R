@@ -1,8 +1,6 @@
 library("rsconnect")
 library("here")
 
-spe_path = here('processed-data', '04_example_data', 'visiumStitched_brain_spe.rds')
-
 ## Or you can go to your shinyapps.io account and copy this
 ## Here we do this to keep our information hidden.
 # load(here("code", "05_shiny", ".deploy_info.Rdata"), verbose = TRUE)
@@ -20,10 +18,10 @@ rsconnect::deployApp(
     appDir = here("code", "05_shiny"),
     appFiles = c(
         "app.R",
-        "visiumStitched_brain_spe.rds",
+        withr::with_dir(here("code", "05_shiny"), dir("spe", full.names = TRUE)),
         withr::with_dir(here("code", "05_shiny"), dir("www", full.names = TRUE))
     ),
-    appName = "visiumStiched_brain",
+    appName = "visiumStitched_brain",
     account = "libd",
     server = "shinyapps.io"
 )

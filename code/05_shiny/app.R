@@ -1,4 +1,5 @@
 library("spatialLIBD")
+library("HDF5Array")
 library("markdown") ## Hm... to avoid this error
 # 2021-11-11T05:30:49.941401+00:00 shinyapps[5096402]: Listening on http://127.0.0.1:32863
 # 2021-11-11T05:30:50.218127+00:00 shinyapps[5096402]: Warning: Error in loadNamespace: there is no package called ‘markdown’
@@ -11,7 +12,7 @@ options("golem.app.prod" = TRUE)
 options(repos = BiocManager::repositories())
 
 ## Load the spe object
-spe <- readRDS('visiumStitched_brain_spe.rds')
+spe <- loadHDF5SummarizedExperiment('spe')
 vars <- colnames(colData(spe))
 
 ## Deploy the website
