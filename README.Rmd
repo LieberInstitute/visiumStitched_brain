@@ -61,3 +61,38 @@ Explore the [Shiny app](https://libd.shinyapps.io/visiumStitched_brain), powered
 Alternatively, you may choose to run the app locally with [`spatialLIBD::run_app()`](http://research.libd.org/spatialLIBD/reference/run_app.html),
 which gives more freedom regarding memory usage and session length. See [this example](https://github.com/LieberInstitute/visiumStitched_brain/blob/devel/code/05_shiny/app.R)
 for invoking `spatialLIBD::run_app()` with an appropriate set of arguments.
+
+## R Objects
+
+The transcriptomics data, SpaceRanger outputs, and Fiji outputs are all available
+through `spatialLIBD::fetch_data()`. A comprehensive vignette using these objects
+is written [here](http://research.libd.org/visiumStitched/articles/full_demo.html).
+
+```{r "pull_data", fig.height = 8, fig.width = 9}
+## Check that you have a recent version of spatialLIBD installed
+stopifnot(packageVersion("spatialLIBD") >= "1.17.6")
+
+## Download the spot-level data, which is a SpatialExperiment object
+spe <- spatialLIBD::fetch_data(type = "visiumStitched_brain_spe")
+spe
+
+## Show clustering results from PRECAST at k = 2
+vis_clus(spe, clustervar = 'precast_k2', is_stitched = TRUE)
+```
+
+## Citing Our Work
+
+TODO: manuscript citation
+
+### Cite `spatialLIBD`
+
+Below is the citation output from using `citation('spatialLIBD')` in R. Please run this yourself
+to check for any updates on how to cite __spatialLIBD__.
+
+```{r 'citation_spatialLIBD'}
+print(citation("spatialLIBD")[1], bibtex = TRUE)
+```
+
+Please note that `spatialLIBD` was only made possible thanks to many other R and bioinformatics
+software authors, which are cited either in the vignettes and/or the paper(s) describing the
+package.
