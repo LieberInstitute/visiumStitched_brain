@@ -1,11 +1,12 @@
 **** Job starts ****
-Wed Jul  3 03:32:59 PM EDT 2024
+Tue Jul 23 01:07:57 PM EDT 2024
 **** JHPCE info ****
 User: neagles
-Job id: 8196968
+Job id: 8647266
 Job name: 01_example_data
-Node name: compute-124
+Node name: compute-168
 Task id: 
+Unloading conda_R/4.4
 Loading conda_R/4.4
 
 Currently Loaded Modules:
@@ -14,7 +15,7 @@ Currently Loaded Modules:
 
  
 
-here() starts at /dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched
+here() starts at /dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
@@ -189,248 +190,75 @@ The following object is masked from ‘package:rhdf5’:
     h5ls
 
 Loading required package: scuttle
-/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs 
-                                                                                                                                    TRUE 
-/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs 
-                                                                                                                                    TRUE 
-/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs 
-                                                                                                                                    TRUE 
-/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs 
-                                                                                                                                   FALSE 
-/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs 
-                                                                                                                                   FALSE 
-/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs 
-                                                                                                                                   FALSE 
-/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs 
-                                                                                                                                   FALSE 
-/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs 
-                                                                                                                                   FALSE 
-/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs 
-                                                                                                                                   FALSE 
-[1] TRUE
-  adding: V13B23-283_D1/ (stored 0%)
-  adding: V13B23-283_D1/outs/ (stored 0%)
-  adding: V13B23-283_D1/outs/spatial/ (stored 0%)
-  adding: V13B23-283_D1/outs/spatial/scalefactors_json.json (deflated 30%)
-  adding: V13B23-283_D1/outs/spatial/tissue_hires_image.png (deflated 0%)
-  adding: V13B23-283_D1/outs/spatial/tissue_lowres_image.png (deflated 0%)
-  adding: V13B23-283_D1/outs/spatial/aligned_fiducials.jpg (deflated 1%)
-  adding: V13B23-283_D1/outs/spatial/tissue_positions.csv (deflated 66%)
-  adding: V13B23-283_D1/outs/spatial/spatial_enrichment.csv (deflated 66%)
-  adding: V13B23-283_D1/outs/spatial/detected_tissue_image.jpg (deflated 1%)
-  adding: V13B23-283_D1/outs/analysis/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/pca/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/pca/gene_expression_10_components/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/pca/gene_expression_10_components/variance.csv (deflated 38%)
-  adding: V13B23-283_D1/outs/analysis/pca/gene_expression_10_components/components.csv (deflated 60%)
-  adding: V13B23-283_D1/outs/analysis/pca/gene_expression_10_components/features_selected.csv (deflated 73%)
-  adding: V13B23-283_D1/outs/analysis/pca/gene_expression_10_components/projection.csv (deflated 53%)
-  adding: V13B23-283_D1/outs/analysis/pca/gene_expression_10_components/dispersion.csv (deflated 64%)
-  adding: V13B23-283_D1/outs/analysis/tsne/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/tsne/gene_expression_2_components/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/tsne/gene_expression_2_components/projection.csv (deflated 55%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_9_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_9_clusters/differential_expression.csv (deflated 70%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_6_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_6_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_graphclust/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_graphclust/differential_expression.csv (deflated 70%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_7_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_7_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_8_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_8_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_3_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_3_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_4_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_4_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_2_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_2_clusters/differential_expression.csv (deflated 76%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_10_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_10_clusters/differential_expression.csv (deflated 70%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_5_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/diffexp/gene_expression_kmeans_5_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_D1/outs/analysis/clustering/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_10_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_10_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_6_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_6_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_9_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_9_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_8_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_8_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_7_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_7_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_4_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_4_clusters/clusters.csv (deflated 73%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_3_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_3_clusters/clusters.csv (deflated 73%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_5_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_5_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_graphclust/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_graphclust/clusters.csv (deflated 72%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_2_clusters/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/clustering/gene_expression_kmeans_2_clusters/clusters.csv (deflated 73%)
-  adding: V13B23-283_D1/outs/analysis/umap/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/umap/gene_expression_2_components/ (stored 0%)
-  adding: V13B23-283_D1/outs/analysis/umap/gene_expression_2_components/projection.csv (deflated 56%)
-  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/ (stored 0%)
-  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
-  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
-  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
-  adding: V13B23-283_C1/ (stored 0%)
-  adding: V13B23-283_C1/outs/ (stored 0%)
-  adding: V13B23-283_C1/outs/spatial/ (stored 0%)
-  adding: V13B23-283_C1/outs/spatial/detected_tissue_image.jpg (deflated 1%)
-  adding: V13B23-283_C1/outs/spatial/tissue_lowres_image.png (deflated 0%)
-  adding: V13B23-283_C1/outs/spatial/aligned_fiducials.jpg (deflated 1%)
-  adding: V13B23-283_C1/outs/spatial/spatial_enrichment.csv (deflated 67%)
-  adding: V13B23-283_C1/outs/spatial/tissue_positions.csv (deflated 70%)
-  adding: V13B23-283_C1/outs/spatial/scalefactors_json.json (deflated 30%)
-  adding: V13B23-283_C1/outs/spatial/tissue_hires_image.png (deflated 0%)
-  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/ (stored 0%)
-  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
-  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
-  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
-  adding: V13B23-283_C1/outs/analysis/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/umap/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/umap/gene_expression_2_components/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/umap/gene_expression_2_components/projection.csv (deflated 56%)
-  adding: V13B23-283_C1/outs/analysis/clustering/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_graphclust/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_graphclust/clusters.csv (deflated 71%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_10_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_10_clusters/clusters.csv (deflated 71%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_7_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_7_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_8_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_8_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_9_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_9_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_6_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_6_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_2_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_2_clusters/clusters.csv (deflated 73%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_5_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_5_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_3_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_3_clusters/clusters.csv (deflated 73%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_4_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/clustering/gene_expression_kmeans_4_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_9_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_9_clusters/differential_expression.csv (deflated 71%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_6_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_6_clusters/differential_expression.csv (deflated 70%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_7_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_7_clusters/differential_expression.csv (deflated 70%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_8_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_8_clusters/differential_expression.csv (deflated 70%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_10_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_10_clusters/differential_expression.csv (deflated 70%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_3_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_3_clusters/differential_expression.csv (deflated 70%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_4_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_4_clusters/differential_expression.csv (deflated 71%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_graphclust/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_graphclust/differential_expression.csv (deflated 70%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_2_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_2_clusters/differential_expression.csv (deflated 76%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_5_clusters/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/diffexp/gene_expression_kmeans_5_clusters/differential_expression.csv (deflated 71%)
-  adding: V13B23-283_C1/outs/analysis/tsne/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/tsne/gene_expression_2_components/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/tsne/gene_expression_2_components/projection.csv (deflated 55%)
-  adding: V13B23-283_C1/outs/analysis/pca/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/pca/gene_expression_10_components/ (stored 0%)
-  adding: V13B23-283_C1/outs/analysis/pca/gene_expression_10_components/dispersion.csv (deflated 64%)
-  adding: V13B23-283_C1/outs/analysis/pca/gene_expression_10_components/components.csv (deflated 60%)
-  adding: V13B23-283_C1/outs/analysis/pca/gene_expression_10_components/variance.csv (deflated 39%)
-  adding: V13B23-283_C1/outs/analysis/pca/gene_expression_10_components/projection.csv (deflated 53%)
-  adding: V13B23-283_C1/outs/analysis/pca/gene_expression_10_components/features_selected.csv (deflated 73%)
-  adding: V13B23-283_A1/ (stored 0%)
-  adding: V13B23-283_A1/outs/ (stored 0%)
-  adding: V13B23-283_A1/outs/spatial/ (stored 0%)
-  adding: V13B23-283_A1/outs/spatial/spatial_enrichment.csv (deflated 66%)
-  adding: V13B23-283_A1/outs/spatial/tissue_positions.csv (deflated 68%)
-  adding: V13B23-283_A1/outs/spatial/aligned_fiducials.jpg (deflated 0%)
-  adding: V13B23-283_A1/outs/spatial/detected_tissue_image.jpg (deflated 1%)
-  adding: V13B23-283_A1/outs/spatial/tissue_lowres_image.png (deflated 0%)
-  adding: V13B23-283_A1/outs/spatial/tissue_hires_image.png (deflated 0%)
-  adding: V13B23-283_A1/outs/spatial/scalefactors_json.json (deflated 29%)
-  adding: V13B23-283_A1/outs/analysis/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_5_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_5_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_2_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_2_clusters/clusters.csv (deflated 73%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_4_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_4_clusters/clusters.csv (deflated 73%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_10_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_10_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_3_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_3_clusters/clusters.csv (deflated 73%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_graphclust/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_graphclust/clusters.csv (deflated 72%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_7_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_7_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_8_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_8_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_9_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_9_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_6_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_6_clusters/clusters.csv (deflated 72%)
-  adding: V13B23-283_A1/outs/analysis/umap/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/umap/gene_expression_2_components/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/umap/gene_expression_2_components/projection.csv (deflated 56%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_5_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_5_clusters/differential_expression.csv (deflated 68%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_10_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_10_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_2_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_2_clusters/differential_expression.csv (deflated 76%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_4_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_4_clusters/differential_expression.csv (deflated 68%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_3_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_3_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_7_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_7_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_8_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_8_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_9_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_9_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_6_clusters/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_kmeans_6_clusters/differential_expression.csv (deflated 69%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_graphclust/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/diffexp/gene_expression_graphclust/differential_expression.csv (deflated 68%)
-  adding: V13B23-283_A1/outs/analysis/tsne/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/tsne/gene_expression_2_components/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/tsne/gene_expression_2_components/projection.csv (deflated 55%)
-  adding: V13B23-283_A1/outs/analysis/pca/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/pca/gene_expression_10_components/ (stored 0%)
-  adding: V13B23-283_A1/outs/analysis/pca/gene_expression_10_components/dispersion.csv (deflated 64%)
-  adding: V13B23-283_A1/outs/analysis/pca/gene_expression_10_components/components.csv (deflated 60%)
-  adding: V13B23-283_A1/outs/analysis/pca/gene_expression_10_components/features_selected.csv (deflated 73%)
-  adding: V13B23-283_A1/outs/analysis/pca/gene_expression_10_components/projection.csv (deflated 53%)
-  adding: V13B23-283_A1/outs/analysis/pca/gene_expression_10_components/variance.csv (deflated 39%)
-  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/ (stored 0%)
-  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
-  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
-  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
-  adding: Br2719.xml (deflated 84%)
-  adding: Br2719.png (deflated 0%)
+           used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  8217140 438.9   12242000 653.8  9992955 533.7
+Vcells 16451744 125.6   73896938 563.8 92360815 704.7
+/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs 
+                                                                                                                                      FALSE 
+/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs 
+                                                                                                                                      FALSE 
+/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs 
+                                                                                                                                      FALSE 
+/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs 
+                                                                                                                                      FALSE 
+/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs 
+                                                                                                                                      FALSE 
+/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs 
+                                                                                                                                      FALSE 
+/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs 
+                                                                                                                                      FALSE 
+/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs 
+                                                                                                                                      FALSE 
+/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs 
+                                                                                                                                      FALSE 
+[1] FALSE
+Warning messages:
+1: In file.symlink(src_dir, dest_dir) :
+  cannot symlink '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/01_spaceranger/V13B23-283_A1/outs/raw_feature_bc_matrix' to '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/raw_feature_bc_matrix', reason 'File exists'
+2: In file.symlink(src_dir, dest_dir) :
+  cannot symlink '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/01_spaceranger/V13B23-283_C1/outs/raw_feature_bc_matrix' to '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/raw_feature_bc_matrix', reason 'File exists'
+3: In file.symlink(src_dir, dest_dir) :
+  cannot symlink '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/01_spaceranger/V13B23-283_D1/outs/raw_feature_bc_matrix' to '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/raw_feature_bc_matrix', reason 'File exists'
+4: In file.symlink(src_dir, dest_dir) :
+  cannot symlink '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/01_spaceranger/V13B23-283_A1/outs/spatial' to '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/spatial', reason 'File exists'
+5: In file.symlink(src_dir, dest_dir) :
+  cannot symlink '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/01_spaceranger/V13B23-283_C1/outs/spatial' to '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/spatial', reason 'File exists'
+6: In file.symlink(src_dir, dest_dir) :
+  cannot symlink '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/01_spaceranger/V13B23-283_D1/outs/spatial' to '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/spatial', reason 'File exists'
+7: In file.symlink(src_dir, dest_dir) :
+  cannot symlink '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/01_spaceranger/V13B23-283_A1/outs/analysis' to '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs/analysis', reason 'File exists'
+8: In file.symlink(src_dir, dest_dir) :
+  cannot symlink '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/01_spaceranger/V13B23-283_C1/outs/analysis' to '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs/analysis', reason 'File exists'
+9: In file.symlink(src_dir, dest_dir) :
+  cannot symlink '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/01_spaceranger/V13B23-283_D1/outs/analysis' to '/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_D1/outs/analysis', reason 'File exists'
+	zip warning: name not matched: V13B23-283_D1/outs/spatial
+	zip warning: name not matched: V13B23-283_D1/outs/analysis
+	zip warning: name not matched: V13B23-283_D1/outs/raw_feature_bc_matrix
+	zip warning: name not matched: V13B23-283_C1/outs/spatial
+	zip warning: name not matched: V13B23-283_C1/outs/raw_feature_bc_matrix
+	zip warning: name not matched: V13B23-283_C1/outs/analysis
+	zip warning: name not matched: V13B23-283_A1/outs/spatial
+	zip warning: name not matched: V13B23-283_A1/outs/analysis
+	zip warning: name not matched: V13B23-283_A1/outs/raw_feature_bc_matrix
+updating: V13B23-283_D1/ (stored 0%)
+updating: V13B23-283_D1/outs/ (stored 0%)
+updating: V13B23-283_C1/ (stored 0%)
+updating: V13B23-283_C1/outs/ (stored 0%)
+updating: V13B23-283_A1/ (stored 0%)
+updating: V13B23-283_A1/outs/ (stored 0%)
+updating: Br2719.xml (deflated 84%)
+updating: Br2719.png (deflated 0%)
 ─ Session info ───────────────────────────────────────────────────────────────
  setting  value
  version  R version 4.4.0 Patched (2024-05-22 r86590)
- os       Rocky Linux 9.2 (Blue Onyx)
+ os       Rocky Linux 9.4 (Blue Onyx)
  system   x86_64, linux-gnu
  ui       X11
  language (EN)
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       US/Eastern
- date     2024-07-03
+ date     2024-07-23
  pandoc   3.1.13 @ /jhpce/shared/community/core/conda_R/4.4/bin/pandoc
 
 ─ Packages ───────────────────────────────────────────────────────────────────
@@ -530,4 +358,4 @@ Loading required package: scuttle
 
 ──────────────────────────────────────────────────────────────────────────────
 **** Job ends ****
-Wed Jul  3 03:35:15 PM EDT 2024
+Tue Jul 23 01:10:06 PM EDT 2024

@@ -41,6 +41,8 @@ dir.create(dirname(spe_out_path), showWarnings = FALSE)
 dir.create(spe_shiny_dir, recursive = TRUE, showWarnings = FALSE)
 stopifnot(dirname(fiji_out_image) == dirname(fiji_out_xml))
 
+set.seed(1) # For PCA
+
 ################################################################################
 #   Prepare SpatialExperiment
 ################################################################################
@@ -81,7 +83,7 @@ spe = runPCA(spe, ncomponents = 10, name = 'PCA')
 #   Create an HDF5-backed version without raw counts for Shiny
 spe_shiny = spe
 assays(spe_shiny)$counts = NULL
-saveHDF5SummarizedExperiment(spe_shiny, spe_shiny_dir)
+saveHDF5SummarizedExperiment(spe_shiny, spe_shiny_dir, replace = TRUE)
 rm(spe_shiny)
 gc()
 
