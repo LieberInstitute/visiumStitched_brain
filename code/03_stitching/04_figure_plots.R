@@ -2,11 +2,17 @@ library(spatialLIBD)
 library(here)
 library(tidyverse)
 library(sessioninfo)
+library(Polychrome)
+data(palette36)
 
 ca_colors = c("#A33B20ff", "#e7bb4100", "#3d3b8eff")
 names(ca_colors) = c("V13B23-283_C1", "V13B23-283_D1", "V13B23-283_A1")
 ca_fill = c("#A33B2000", "#e7bb41ff", "#3d3b8e00")
 names(ca_fill) = names(ca_colors)
+cluster_colors = c(
+    "#320d6d", "#BA1200", "#FFAE03", "#58A4B0", "#58A4B0", "#305252",
+    "#A28B45", "#111111", "#000000"
+)
 
 plot_dir = here('plots', '03_stitching')
 
@@ -59,11 +65,16 @@ print(p)
 dev.off()
 
 ################################################################################
-#   Spot plots figure: SLC17A7, WM genes, agreement of PRECAST at overlaps
+#   Spot plots figure: SLC17A7 + WM genes, PRECAST results, agreement of
+#   PRECAST at overlaps
 ################################################################################
 
 this_plot_dir = file.path(plot_dir, 'spot_plots_figure')
 dir.create(this_plot_dir, showWarnings = FALSE)
+
+#-------------------------------------------------------------------------------
+#   Gene expression plots
+#-------------------------------------------------------------------------------
 
 slc = rowData(spe)$gene_id[match("SLC17A7", rowData(spe)$gene_name)]
 wm_genes = rowData(spe)$gene_id[
@@ -78,7 +89,24 @@ pdf(file.path(this_plot_dir, 'white_matter.pdf'))
 vis_gene(spe, geneid = wm_genes, is_stitched = TRUE)
 dev.off()
 
-#   Next, we'll assess how often cluster assignments agree at overlaps
+#-------------------------------------------------------------------------------
+#   PRECAST results
+#-------------------------------------------------------------------------------
+
+for (this_k in c(2, 4, 8)) {
+    p = vis_clus(
+            spe, clustervar = paste0("precast_k", this_k), is_stitched = TRUE,
+            colors = cluster_colors
+        ) +
+        guides(fill = guide_legend(override.aes = list(size = 3)))
+    pdf(file.path(this_plot_dir, sprintf('precast_k%s.pdf', this_k)))
+    print(p)
+    dev.off()
+}
+
+#-------------------------------------------------------------------------------
+#   Agreement of PRECAST clusters at overlaps
+#-------------------------------------------------------------------------------
 
 precast_df = colData(spe) |>
     as_tibble() |>
