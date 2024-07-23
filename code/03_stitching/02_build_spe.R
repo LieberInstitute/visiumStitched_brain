@@ -29,9 +29,9 @@ dir.create(plot_dir, showWarnings = FALSE)
 sample_info = read_csv(info_path, show_col_types = FALSE)
 
 #   Write transformed image, scalefactors, and coords to a temporary directory
-message(Sys.time(), " - Processing ImageJ outputs")
-prep_imagej_coords(sample_info, coords_dir)
-prep_imagej_image(sample_info, coords_dir)
+message(Sys.time(), " - Processing Fiji outputs")
+prep_fiji_coords(sample_info, coords_dir)
+prep_fiji_image(sample_info, coords_dir)
 
 message(Sys.time(), " - Building raw SPE")
 spe = build_spe(sample_info, coords_dir = coords_dir, reference_gtf = gtf_path)

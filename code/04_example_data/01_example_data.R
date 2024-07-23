@@ -23,14 +23,14 @@ sr_subset_zip = here(
 )
 sr_full_dir = here('processed-data', '01_spaceranger')
 info_path = here('processed-data', '03_stitching', 'sample_info.csv')
-imagej_out_image = here(
-    'processed-data', '03_stitching', 'imagej', 'Br2719.png'
+fiji_out_image = here(
+    'processed-data', '03_stitching', 'fiji', 'Br2719.png'
 )
-imagej_out_xml = here(
-    'processed-data', '03_stitching', 'imagej', 'Br2719.xml'
+fiji_out_xml = here(
+    'processed-data', '03_stitching', 'fiji', 'Br2719.xml'
 )
-imagej_out_zip = here(
-    'processed-data', '04_example_data', 'visiumStitched_brain_imagej_out.zip'
+fiji_out_zip = here(
+    'processed-data', '04_example_data', 'visiumStitched_brain_fiji_out.zip'
 )
 precast_paths = here(
     'processed-data', '03_stitching', 'precast_out',
@@ -39,7 +39,7 @@ precast_paths = here(
 
 dir.create(dirname(spe_out_path), showWarnings = FALSE)
 dir.create(spe_shiny_dir, recursive = TRUE, showWarnings = FALSE)
-stopifnot(dirname(imagej_out_image) == dirname(imagej_out_xml))
+stopifnot(dirname(fiji_out_image) == dirname(fiji_out_xml))
 
 ################################################################################
 #   Prepare SpatialExperiment
@@ -94,14 +94,14 @@ assays(spe) = list(
 saveRDS(spe, spe_out_path)
 
 ################################################################################
-#   Prepare zip files: Spaceranger and ImageJ outputs
+#   Prepare zip files: Spaceranger and Fiji outputs
 ################################################################################
 
 sample_info = read_csv(info_path, show_col_types = FALSE)
 
 src_dir = as.character(
     outer(
-        dirname(sample_info$spaceranger_dir), 
+        dirname(sample_info$spaceranger_dir),
         c('raw_feature_bc_matrix', 'spatial', 'analysis'),
         FUN = file.path
     )
@@ -118,14 +118,14 @@ all(file.symlink(src_dir, dest_dir))
 setwd(sr_subset_dir)
 system(sprintf('zip -9 -r %s .', sr_subset_zip))
 
-#   Zip ImageJ outputs
-setwd(dirname(imagej_out_image))
+#   Zip Fiji outputs
+setwd(dirname(fiji_out_image))
 system(
     sprintf(
         'zip -9 %s %s %s',
-        imagej_out_zip,
-        basename(imagej_out_xml),
-        basename(imagej_out_image)
+        fiji_out_zip,
+        basename(fiji_out_xml),
+        basename(fiji_out_image)
     )
 )
 
