@@ -13,7 +13,10 @@ library(HDF5Array)
 library(scater)
 
 spe_in_dir = here('processed-data', '03_stitching', 'spe')
-spe_out_path = here('processed-data', '04_example_data', 'visiumStitched_brain_spe.rds')
+spe_out_path = here(
+    'processed-data', '04_example_data', 'visiumStitched_brain_spe.rds'
+)
+spe_shiny_dir = here('code', '05_shiny', 'spe')
 sr_subset_dir = here('processed-data', '04_example_data', 'spaceranger_subset')
 sr_subset_zip = here(
     'processed-data', '04_example_data', 'visiumStitched_brain_spaceranger.zip'
@@ -35,6 +38,7 @@ precast_paths = here(
 )
 
 dir.create(dirname(spe_out_path), showWarnings = FALSE)
+dir.create(spe_shiny_dir, recursive = TRUE, showWarnings = FALSE)
 stopifnot(dirname(imagej_out_image) == dirname(imagej_out_xml))
 
 ################################################################################
@@ -44,7 +48,6 @@ stopifnot(dirname(imagej_out_image) == dirname(imagej_out_xml))
 #   Only include logcounts as a sparse in-memory matrix. Otherwise, save the
 #   object as is
 spe = loadHDF5SummarizedExperiment(spe_in_dir)
-assays(spe) = list(logcounts = as(assays(spe)$logcounts, "dgCMatrix"))
 
 #   Read in PRECAST results for all values of k and combine in wide format
 cluster_df_list = list()
@@ -74,6 +77,19 @@ colnames(spe) = temp
 
 #   Add 10 PCs to reducedDims()
 spe = runPCA(spe, ncomponents = 10, name = 'PCA')
+
+#   Create an HDF5-backed version without raw counts for Shiny
+spe_shiny = spe
+assays(spe_shiny)$counts = NULL
+saveHDF5SummarizedExperiment(spe_shiny, spe_shiny_dir)
+rm(spe_shiny)
+gc()
+
+#   Use sparse in-memory assays for the example SPE
+assays(spe) = list(
+    counts = as(assays(spe)$counts, "dgCMatrix"),
+    logcounts = as(assays(spe)$logcounts, "dgCMatrix")
+)
 
 saveRDS(spe, spe_out_path)
 
