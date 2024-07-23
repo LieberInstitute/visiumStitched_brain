@@ -9,6 +9,7 @@ library(scran)
 library(scater)
 library(scry)
 library(BiocParallel)
+library(spatialLIBD)
 
 info_path = here('processed-data', '03_stitching', 'sample_info.csv')
 coords_dir = here('processed-data', '03_stitching', 'spe_inputs')
@@ -87,7 +88,7 @@ spe = saveHDF5SummarizedExperiment(
 
 wm_genes = rowData(spe)$gene_id[match(wm_genes, rowData(spe)$gene_name)]
 p = vis_gene(
-    spe, sample_id = unique(spe$sample_id)[1], geneid = wm_genes,
+    spe, sampleid = unique(spe$sample_id)[1], geneid = wm_genes,
     multi_gene_method = 'pca', is_stitched = TRUE
 )
 
