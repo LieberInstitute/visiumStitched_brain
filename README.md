@@ -34,7 +34,7 @@ TODO: add figure 1 and caption
 The code in this repository follows the organization from
 <https://github.com/LieberInstitute/template_project> following the
 guidelines from
-[organizing-your-work](https://lcolladotor.github.io/bioc_team_ds/organizing-your-work.html#.YzL43uzMKX0)..
+[organizing-your-work](https://lcolladotor.github.io/bioc_team_ds/organizing-your-work.html#.YzL43uzMKX0).
 
 ## Introductory Material
 
