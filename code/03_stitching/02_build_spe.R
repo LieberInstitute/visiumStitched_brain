@@ -86,10 +86,9 @@ spe = saveHDF5SummarizedExperiment(
 ################################################################################
 
 wm_genes = rowData(spe)$gene_id[match(wm_genes, rowData(spe)$gene_name)]
-p = spot_plot(
-    spe, sample_id = unique(spe$sample_id)[1], var_name = wm_genes,
-    is_discrete = FALSE, assayname = 'logcounts', minCount = 0,
-    multi_gene_method = 'pca', spatial = TRUE
+p = vis_gene(
+    spe, sample_id = unique(spe$sample_id)[1], geneid = wm_genes,
+    multi_gene_method = 'pca', is_stitched = TRUE
 )
 
 pdf(file.path(plot_dir, 'white_matter.pdf'), width = 4, height = 8)
