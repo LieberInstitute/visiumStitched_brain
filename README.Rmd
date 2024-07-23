@@ -25,9 +25,9 @@ knitr::opts_chunk$set(
 ## Overview
 
 This repository contains the data used to demonstrate the utility of [`visiumStitched`](https://github.com/LieberInstitute/visiumStitched). Three [Visium](https://www.10xgenomics.com/products/spatial-gene-expression)
-capture areas were collected from the lateral septum of the postmortem human brain from one donor. We use
+capture areas were collected from the postmortem human brain from one donor. We use
 [Fiji](https://imagej.net/software/fiji/) and `visiumStitched` to stitch the gene-expression and imaging
-data into one sample, containing the entire lateral septum, for downstream analysis.
+data into one sample for downstream analysis.
 
 If you tweet about this website, the data or the R package please use
 the <code>\#visiumStitched</code> hashtag. You can find previous tweets
@@ -53,3 +53,11 @@ Check out [this guide](http://research.libd.org/visiumStitched/articles/full_dem
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kFLtpK3qbSY?si=u6bIKY5U9yccx62R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-external="1"></iframe>
 
+## Interactive Websites
+
+Explore the [Shiny app](https://libd.shinyapps.io/visiumStitched_brain), powered by
+[spatialLIBD](https://doi.org/10.1186/s12864-022-08601-w).
+
+Alternatively, you may choose to run the app locally with [`spatialLIBD::run_app()`](http://research.libd.org/spatialLIBD/reference/run_app.html),
+which gives more freedom regarding memory usage and session length. See [this example](https://github.com/LieberInstitute/visiumStitched_brain/blob/devel/code/05_shiny/app.R)
+for invoking `spatialLIBD::run_app()` with an appropriate set of arguments.
