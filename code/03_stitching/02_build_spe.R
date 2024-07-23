@@ -36,6 +36,9 @@ prep_imagej_image(sample_info, coords_dir)
 message(Sys.time(), " - Building raw SPE")
 spe = build_spe(sample_info, coords_dir = coords_dir, reference_gtf = gtf_path)
 
+#   Fix orientation in response to wet-bench feedback
+spe = mirrorObject(spe, axis = "h")
+
 ################################################################################
 #   Filter, log normalize, and save
 ################################################################################
