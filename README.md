@@ -9,11 +9,10 @@ This repository contains the data used to demonstrate the utility of
 [`visiumStitched`](https://github.com/LieberInstitute/visiumStitched).
 Three
 [Visium](https://www.10xgenomics.com/products/spatial-gene-expression)
-capture areas were collected from the lateral septum of the postmortem
-human brain from one donor. We use
-[Fiji](https://imagej.net/software/fiji/) and `visiumStitched` to stitch
-the gene-expression and imaging data into one sample, containing the
-entire lateral septum, for downstream analysis.
+capture areas were collected from the postmortem human brain from one
+donor. We use [Fiji](https://imagej.net/software/fiji/) and
+`visiumStitched` to stitch the gene-expression and imaging data into one
+sample for downstream analysis.
 
 If you tweet about this website, the data or the R package please use
 the <code>\#visiumStitched</code> hashtag. You can find previous tweets
@@ -45,3 +44,96 @@ capture areas for this project.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kFLtpK3qbSY?si=u6bIKY5U9yccx62R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-external="1">
 </iframe>
+
+## Interactive Websites
+
+Explore the [Shiny app](https://libd.shinyapps.io/visiumStitched_brain),
+powered by [spatialLIBD](https://doi.org/10.1186/s12864-022-08601-w).
+
+Alternatively, you may choose to run the app locally with
+[`spatialLIBD::run_app()`](http://research.libd.org/spatialLIBD/reference/run_app.html),
+which gives more freedom regarding memory usage and session length. See
+[this
+example](https://github.com/LieberInstitute/visiumStitched_brain/blob/devel/code/05_shiny/app.R)
+for invoking `spatialLIBD::run_app()` with an appropriate set of
+arguments.
+
+## R Objects
+
+The transcriptomics data, SpaceRanger outputs, and Fiji outputs are all
+available through `spatialLIBD::fetch_data()`. A comprehensive vignette
+using these objects is written
+[here](http://research.libd.org/visiumStitched/articles/full_demo.html).
+
+``` r
+## Check that you have a recent version of spatialLIBD installed
+stopifnot(packageVersion("spatialLIBD") >= "1.17.6")
+
+## Download the spot-level data, which is a SpatialExperiment object
+spe <- spatialLIBD::fetch_data(type = "visiumStitched_brain_spe")
+#> snapshotDate(): 2024-04-29
+#> 2024-07-23 15:24:31.641754 loading file /users/neagles/.cache/R/BiocFileCache/15710f586f5ae9_visiumStitched_brain_spe.rds%3Frlkey%3Dnq6a82u23xuu9hohr86oodwdi%26dl%3D1
+```
+
+``` r
+spe
+#> class: SpatialExperiment 
+#> dim: 26369 13965 
+#> metadata(0):
+#> assays(1): logcounts
+#> rownames(26369): ENSG00000238009 ENSG00000241860 ... ENSG00000278817
+#>   ENSG00000277196
+#> rowData names(7): source type ... gene_type gene_search
+#> colnames(13965): AAACAACGAATAGTTC-1_V13B23-283_A1
+#>   AAACAAGTATCTCCCA-1_V13B23-283_A1 ... TTGTTTGTATTACACG-1_V13B23-283_D1
+#>   TTGTTTGTGTAAATTC-1_V13B23-283_D1
+#> colData names(40): sample_id in_tissue ... precast_k4 precast_k8
+#> reducedDimNames(1): PCA
+#> mainExpName: NULL
+#> altExpNames(0):
+#> spatialCoords names(2) : pxl_col_in_fullres pxl_row_in_fullres
+#> imgData names(4): sample_id image_id data scaleFactor
+```
+
+``` r
+
+## Show clustering results from PRECAST at k = 2
+spatialLIBD::vis_clus(spe, clustervar = 'precast_k2', is_stitched = TRUE)
+```
+
+<img src="img/pull_data-1.png" width="100%" />
+
+## Citing Our Work
+
+TODO: manuscript citation
+
+### Cite `spatialLIBD`
+
+Below is the citation output from using `citation('spatialLIBD')` in R.
+Please run this yourself to check for any updates on how to cite
+**spatialLIBD**.
+
+``` r
+print(citation("spatialLIBD")[1], bibtex = TRUE)
+#> Pardo B, Spangler A, Weber LM, Hicks SC, Jaffe AE, Martinowich K,
+#> Maynard KR, Collado-Torres L (2022). "spatialLIBD: an R/Bioconductor
+#> package to visualize spatially-resolved transcriptomics data." _BMC
+#> Genomics_. doi:10.1186/s12864-022-08601-w
+#> <https://doi.org/10.1186/s12864-022-08601-w>,
+#> <https://doi.org/10.1186/s12864-022-08601-w>.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Article{,
+#>     title = {spatialLIBD: an R/Bioconductor package to visualize spatially-resolved transcriptomics data},
+#>     author = {Brenda Pardo and Abby Spangler and Lukas M. Weber and Stephanie C. Hicks and Andrew E. Jaffe and Keri Martinowich and Kristen R. Maynard and Leonardo Collado-Torres},
+#>     year = {2022},
+#>     journal = {BMC Genomics},
+#>     doi = {10.1186/s12864-022-08601-w},
+#>     url = {https://doi.org/10.1186/s12864-022-08601-w},
+#>   }
+```
+
+Please note that `spatialLIBD` was only made possible thanks to many
+other R and bioinformatics software authors, which are cited either in
+the vignettes and/or the paper(s) describing the package.
