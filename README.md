@@ -29,7 +29,7 @@ TODO: add figure 1 and caption
 ## Internal
 
 - JHPCE location:
-  `/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched`.
+  `/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain`.
 
 The code in this repository follows the organization from
 <https://github.com/LieberInstitute/template_project> following the
@@ -43,5 +43,5 @@ guide](http://research.libd.org/visiumStitched/articles/full_demo.html)
 to using `visiumStitched`, which enabled the integration of all three
 capture areas for this project.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kFLtpK3qbSY?si=u6bIKY5U9yccx62R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kFLtpK3qbSY?si=u6bIKY5U9yccx62R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-external="1">
 </iframe>

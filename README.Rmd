@@ -42,7 +42,7 @@ TODO: add figure 1 and caption
 
 ## Internal
 
-* JHPCE location: `/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/LS_visiumStitched`.
+* JHPCE location: `/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain`.
 
 The code in this repository follows the organization from https://github.com/LieberInstitute/template_project following the guidelines from [organizing-your-work](https://lcolladotor.github.io/bioc_team_ds/organizing-your-work.html#.YzL43uzMKX0)..
 
