@@ -427,18 +427,17 @@ stopifnot(packageVersion(&quot;spatialLIBD&quot;) &gt;= &quot;1.17.6&quot;)
 
 ## Download the spot-level data, which is a SpatialExperiment object
 spe &lt;- spatialLIBD::fetch_data(type = &quot;visiumStitched_brain_spe&quot;)
-#&gt; 2024-07-23 15:16:08.230051 loading file /Users/nick.eagles/Library/Caches/org.R-project.R/R/BiocFileCache/28927b0c9199_visiumStitched_brain_spe.rds%3Frlkey%3Dnq6a82u23xuu9hohr86oodwdi%26dl%3D1
+#&gt; snapshotDate(): 2024-04-29
+#&gt; 2024-07-24 11:32:12.458952 loading file /Users/nick.eagles/Library/Caches/org.R-project.R/R/BiocFileCache/28927b0c9199_visiumStitched_brain_spe.rds%3Frlkey%3Dnq6a82u23xuu9hohr86oodwdi%26dl%3D1
 spe
 #&gt; class: SpatialExperiment 
 #&gt; dim: 26369 13965 
 #&gt; metadata(0):
 #&gt; assays(1): logcounts
-#&gt; rownames(26369): ENSG00000238009 ENSG00000241860 ... ENSG00000278817
-#&gt;   ENSG00000277196
+#&gt; rownames(26369): ENSG00000238009 ENSG00000241860 ... ENSG00000278817 ENSG00000277196
 #&gt; rowData names(7): source type ... gene_type gene_search
-#&gt; colnames(13965): AAACAACGAATAGTTC-1_V13B23-283_A1
-#&gt;   AAACAAGTATCTCCCA-1_V13B23-283_A1 ... TTGTTTGTATTACACG-1_V13B23-283_D1
-#&gt;   TTGTTTGTGTAAATTC-1_V13B23-283_D1
+#&gt; colnames(13965): AAACAACGAATAGTTC-1_V13B23-283_A1 AAACAAGTATCTCCCA-1_V13B23-283_A1 ...
+#&gt;   TTGTTTGTATTACACG-1_V13B23-283_D1 TTGTTTGTGTAAATTC-1_V13B23-283_D1
 #&gt; colData names(40): sample_id in_tissue ... precast_k4 precast_k8
 #&gt; reducedDimNames(1): PCA
 #&gt; mainExpName: NULL
@@ -459,10 +458,9 @@ spatialLIBD::vis_clus(spe, clustervar = &#39;precast_k2&#39;, is_stitched = TRUE
 <code>citation(&#39;spatialLIBD&#39;)</code> in R. Please run this yourself to
 check for any updates on how to cite <strong>spatialLIBD</strong>.</p>
 <pre class="r"><code>print(citation(&quot;spatialLIBD&quot;)[1], bibtex = TRUE)
-#&gt; Pardo B, Spangler A, Weber LM, Hicks SC, Jaffe AE, Martinowich K,
-#&gt; Maynard KR, Collado-Torres L (2022). &quot;spatialLIBD: an R/Bioconductor
-#&gt; package to visualize spatially-resolved transcriptomics data.&quot; _BMC
-#&gt; Genomics_. doi:10.1186/s12864-022-08601-w
+#&gt; Pardo B, Spangler A, Weber LM, Hicks SC, Jaffe AE, Martinowich K, Maynard KR,
+#&gt; Collado-Torres L (2022). &quot;spatialLIBD: an R/Bioconductor package to visualize
+#&gt; spatially-resolved transcriptomics data.&quot; _BMC Genomics_. doi:10.1186/s12864-022-08601-w
 #&gt; &lt;https://doi.org/10.1186/s12864-022-08601-w&gt;,
 #&gt; &lt;https://doi.org/10.1186/s12864-022-08601-w&gt;.
 #&gt; 
