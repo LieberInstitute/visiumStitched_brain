@@ -31,6 +31,14 @@ spe$pxl_row_in_fullres_rounded = dim(imgRaster(spe))[1] / scaleFactors(spe)[1] -
 this_plot_dir = file.path(plot_dir, 'array_coords_figure')
 dir.create(this_plot_dir, showWarnings = FALSE)
 
+#   Define axis range such that axes go from 0 to the max value in the data
+#   (before mirroring things vertically)
+max_x = max(spatialCoords(spe)[, 'pxl_col_in_fullres'])
+min_x = 0
+max_y = max(spatialCoords(spe)[, 'pxl_row_in_fullres']) +
+    min(spatialCoords(spe)[, 'pxl_row_in_fullres'])
+min_y = min(spatialCoords(spe)[, 'pxl_row_in_fullres'])
+
 p = colData(spe) |>
     cbind(spatialCoords(spe)) |>
     as_tibble() |>
@@ -44,7 +52,10 @@ p = colData(spe) |>
         )
     ) +
         geom_point(shape = 21, size = 0.5, stroke = 0.2) +
-        coord_fixed() +
+        coord_fixed(
+            xlim = c(min_x, max_x),
+            ylim = c(min_y, max_y)
+        ) +
         scale_color_manual(values = ca_colors) +
         scale_fill_manual(values = ca_fill) +
         labs(color = "Capture area", fill = "Capture area") +
@@ -66,7 +77,10 @@ p = colData(spe) |>
         )
     ) +
         geom_point(shape = 21, size = 0.5, stroke = 0.2) +
-        coord_fixed() +
+        coord_fixed(
+            xlim = c(min_x, max_x),
+            ylim = c(min_y, max_y)
+        ) +
         scale_color_manual(values = ca_colors) +
         scale_fill_manual(values = ca_fill) +
         labs(color = "Capture area", fill = "Capture area") +
