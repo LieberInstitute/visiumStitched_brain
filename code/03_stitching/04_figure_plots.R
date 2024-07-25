@@ -2,8 +2,11 @@ library(spatialLIBD)
 library(here)
 library(tidyverse)
 library(sessioninfo)
-library(Polychrome)
-data(palette36)
+
+spe_path = here(
+    'processed-data', '04_example_data', 'visiumStitched_brain_spe.rds'
+)
+plot_dir = here('plots', '03_stitching')
 
 ca_colors = c("#A33B20ff", "#e7bb4100", "#3d3b8eff")
 names(ca_colors) = c("V13B23-283_C1", "V13B23-283_D1", "V13B23-283_A1")
@@ -14,9 +17,12 @@ cluster_colors = c(
     "#A28B45", "#111111", "#000000"
 )
 
-plot_dir = here('plots', '03_stitching')
+spe = readRDS(spe_path)
 
-spe = fetch_data(type = "visiumStitched_brain_spe")
+#   Manually mirror rounded coordinates (simulate
+#   SpatialExperiment::mirrorCoords(spe, axis = "h"))
+spe$pxl_row_in_fullres_rounded = dim(imgRaster(spe))[1] / scaleFactors(spe)[1] -
+    spe$pxl_row_in_fullres_rounded
 
 ################################################################################
 #   Array coordinates figure
@@ -26,11 +32,13 @@ this_plot_dir = file.path(plot_dir, 'array_coords_figure')
 dir.create(this_plot_dir, showWarnings = FALSE)
 
 p = colData(spe) |>
+    cbind(spatialCoords(spe)) |>
     as_tibble() |>
     ggplot(
         mapping = aes(
-            x = pxl_col_in_fullres_transformed,
-            y = max(pxl_row_in_fullres_transformed) - pxl_row_in_fullres_transformed,
+            x = pxl_col_in_fullres,
+            y = min(pxl_row_in_fullres) + max(pxl_row_in_fullres) -
+                pxl_row_in_fullres,
             color = capture_area,
             fill = capture_area
         )
@@ -50,7 +58,9 @@ p = colData(spe) |>
     ggplot(
         mapping = aes(
             x = pxl_col_in_fullres_rounded,
-            y = max(pxl_row_in_fullres_rounded) - pxl_row_in_fullres_rounded,
+            y = min(pxl_row_in_fullres_rounded) +
+                max(pxl_row_in_fullres_rounded) - 
+                pxl_row_in_fullres_rounded,
             color = capture_area,
             fill = capture_area
         )
@@ -59,7 +69,8 @@ p = colData(spe) |>
         coord_fixed() +
         scale_color_manual(values = ca_colors) +
         scale_fill_manual(values = ca_fill) +
-        labs(color = "Capture area", fill = "Capture area")
+        labs(color = "Capture area", fill = "Capture area") +
+        guides(color = guide_legend(override.aes = list(size = 3)))
 pdf(file.path(this_plot_dir, 'rounded_coords.pdf'))
 print(p)
 dev.off()
