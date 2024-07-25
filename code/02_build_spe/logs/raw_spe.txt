@@ -1,0 +1,26 @@
+**** Job starts ****
+Tue May 28 03:53:54 PM EDT 2024
+**** JHPCE info ****
+User: rmiller
+Job id: 6940958
+Job name: LS_build_spe
+Hostname: 
+Task id: 
+Loading conda_R/4.4
+
+Currently Loaded Modules:
+  1) JHPCE_ROCKY9_DEFAULT_ENV   3) conda/3-24.3.0
+  2) JHPCE_tools/3.0            4) conda_R/4.4
+
+ 
+
+[1] "2024-05-28 15:54:29 EDT"
+2024-05-28 15:54:29.98748 SpatialExperiment::read10xVisium: reading basic data from SpaceRanger
+2024-05-28 15:55:07.748526 read10xVisiumAnalysis: reading analysis output from SpaceRanger
+2024-05-28 15:55:09.77676 add10xVisiumAnalysis: adding analysis output from SpaceRanger
+2024-05-28 15:55:10.673914 rtracklayer::import: reading the reference GTF file
+2024-05-28 15:56:28.409086 adding gene information to the SPE object
+2024-05-28 15:56:28.499135 adding information used by spatialLIBD
+[1] "2024-05-28 15:56:29 EDT"
+**** Job ends ****
+Tue May 28 03:57:23 PM EDT 2024

@@ -1,0 +1,12 @@
+**** JHPCE info ****
+User: jthompso
+Job id: 5753404
+Job name: add_demographic_info
+Hostname: 
+Node memory requested: 10240
+Task id: 
+Tue May 21 04:54:45 PM EDT 2024
+The following samples were present in the spe object but not the demographic info:
+V13F27-338_A1 V13F27-338_B1 V13F27-338_C1 V13F27-338_D1 V13F27-348_A1 V13F27-348_B1 V13F27-348_C1 V13F27-348_D1 V13Y10-020_A1 V13Y10-020_B1 V13Y10-020_C1 V13Y10-020_D1 V13Y10-021_A1 V13Y10-021_B1 V13Y10-021_C1 V13Y10-021_D1 V13Y10-022_A1 V13Y10-022_B1 V13Y10-022_C1 V13Y10-022_D1 V13Y10-023_A1 V13Y10-023_B1 V13Y10-023_C1 V13Y10-023_D1
+The following samples were present in the spe object but not the MBv list:
+V13F27-338_B1 V13F27-338_C1 V13F27-338_D1
