@@ -13,7 +13,7 @@ names(ca_colors) = c("V13B23-283_C1", "V13B23-283_D1", "V13B23-283_A1")
 ca_fill = c("#A33B2000", "#e7bb41ff", "#3d3b8e00")
 names(ca_fill) = names(ca_colors)
 cluster_colors = c(
-    "#320d6d", "#BA1200", "#FFAE03", "#58A4B0", "#58A4B0", "#305252",
+    "#320d6d", "#BA1200", "#FFAE03", "#58A4B0", "#506DFF", "#305252",
     "#A28B45", "#111111", "#000000"
 )
 

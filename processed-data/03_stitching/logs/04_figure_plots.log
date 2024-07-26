@@ -1,11 +1,12 @@
 **** Job starts ****
-Thu Jul 25 02:08:14 PM EDT 2024
+Fri Jul 26 04:25:20 PM EDT 2024
 **** JHPCE info ****
 User: neagles
-Job id: 8706924
+Job id: 8754598
 Job name: 04_figure_plots
-Node name: compute-089
+Node name: compute-053
 Task id: 
+Unloading conda_R/4.4
 Loading conda_R/4.4
 
 Currently Loaded Modules:
@@ -135,7 +136,7 @@ null device
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       US/Eastern
- date     2024-07-25
+ date     2024-07-26
  pandoc   3.1.13 @ /jhpce/shared/community/core/conda_R/4.4/bin/pandoc
 
 ─ Packages ───────────────────────────────────────────────────────────────────
@@ -298,4 +299,4 @@ null device
 
 ──────────────────────────────────────────────────────────────────────────────
 **** Job ends ****
-Thu Jul 25 02:09:13 PM EDT 2024
+Fri Jul 26 04:26:48 PM EDT 2024
