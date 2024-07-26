@@ -3,6 +3,8 @@ visiumStitched_brain
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+[![DOI](https://zenodo.org/badge/804518420.svg)](https://zenodo.org/doi/10.5281/zenodo.13014172)
+
 ## Overview
 
 This repository contains the data used to demonstrate the utility of
@@ -23,7 +25,7 @@ Thank you for your interest in our work!
 
 ## Study Design
 
-<img src="img/data_generation.png" align="center" />
+<img src="img/data_generation.png" align="center" width="1000px" />
 
 **Figure 1. Experimental design to generate spatially-resolved
 transcriptomics (SRT) data on three Visium capture arrays in the human
@@ -91,7 +93,7 @@ stopifnot(packageVersion("spatialLIBD") >= "1.17.8")
 
 ## Download the spot-level data, which is a SpatialExperiment object
 spe <- spatialLIBD::fetch_data(type = "visiumStitched_brain_spe")
-#> 2024-07-26 18:26:34.710317 loading file /Users/leocollado/Library/Caches/org.R-project.R/R/BiocFileCache/154352e7328f0_visiumStitched_brain_spe.rds%3Frlkey%3Dnq6a82u23xuu9hohr86oodwdi%26dl%3D1
+#> 2024-07-26 18:58:34.362558 loading file /Users/leocollado/Library/Caches/org.R-project.R/R/BiocFileCache/154352e7328f0_visiumStitched_brain_spe.rds%3Frlkey%3Dnq6a82u23xuu9hohr86oodwdi%26dl%3D1
 spe
 #> class: SpatialExperiment 
 #> dim: 26369 13965 
@@ -123,7 +125,7 @@ spatialLIBD::vis_clus(
 )
 ```
 
-<img src="img/pull_data-1.png" width="100%" />
+<img src="img/pull_data-1.png" width="800px" align='center' />
 
 ## Citing Our Work
 

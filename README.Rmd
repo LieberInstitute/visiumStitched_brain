@@ -22,6 +22,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![DOI](https://zenodo.org/badge/804518420.svg)](https://zenodo.org/doi/10.5281/zenodo.13014172)
+
 ## Overview
 
 This repository contains the data used to demonstrate the utility of [`visiumStitched`](https://github.com/LieberInstitute/visiumStitched). Three [Visium](https://www.10xgenomics.com/products/spatial-gene-expression)
@@ -38,7 +40,7 @@ Thank you for your interest in our work!
 
 ## Study Design
 
-<img src="img/data_generation.png" align="center" />
+<img src="img/data_generation.png" align="center" width="1000px" />
 
 **Figure 1. Experimental design to generate spatially-resolved transcriptomics (SRT) data on three Visium capture arrays in the human brain.**
 
@@ -67,7 +69,7 @@ for invoking `spatialLIBD::run_app()` with an appropriate set of arguments.
 
 For this human brain dataset composed of 3 Visium capture areas, the transcriptomics data, [`SpaceRanger`](https://www.10xgenomics.com/support/software/space-ranger/latest/analysis/running-pipelines/space-ranger-count) outputs, and [`Fiji`](https://imagej.net/software/fiji/) outputs are all available through `spatialLIBD::fetch_data()` (version 1.17.8 or newer). A comprehensive vignette using these objects is written [here](https://research.libd.org/visiumStitched/articles/visiumStitched.html).
 
-```{r "pull_data", fig.height = 8, fig.width = 9}
+```{r "pull_data", fig.height = 8, fig.width = 9, out.width="800px", out.extra="align='center'"}
 ## Check that you have a recent version of spatialLIBD installed
 stopifnot(packageVersion("spatialLIBD") >= "1.17.8")
 
