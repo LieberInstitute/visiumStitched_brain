@@ -69,7 +69,7 @@ For this human brain dataset composed of 3 Visium capture areas, the transcripto
 
 ```{r "pull_data", fig.height = 8, fig.width = 9}
 ## Check that you have a recent version of spatialLIBD installed
-stopifnot(packageVersion("spatialLIBD") >= "1.17.6")
+stopifnot(packageVersion("spatialLIBD") >= "1.17.8")
 
 ## Download the spot-level data, which is a SpatialExperiment object
 spe <- spatialLIBD::fetch_data(type = "visiumStitched_brain_spe")
