@@ -71,16 +71,12 @@ stopifnot(packageVersion("spatialLIBD") >= "1.17.6")
 
 ## Download the spot-level data, which is a SpatialExperiment object
 spe <- spatialLIBD::fetch_data(type = "visiumStitched_brain_spe")
-#> snapshotDate(): 2024-04-29
-#> 2024-07-23 15:24:31.641754 loading file /users/neagles/.cache/R/BiocFileCache/15710f586f5ae9_visiumStitched_brain_spe.rds%3Frlkey%3Dnq6a82u23xuu9hohr86oodwdi%26dl%3D1
-```
-
-``` r
+#> 2024-07-26 18:01:28.079164 loading file /Users/leocollado/Library/Caches/org.R-project.R/R/BiocFileCache/154352e7328f0_visiumStitched_brain_spe.rds%3Frlkey%3Dnq6a82u23xuu9hohr86oodwdi%26dl%3D1
 spe
 #> class: SpatialExperiment 
 #> dim: 26369 13965 
 #> metadata(0):
-#> assays(1): logcounts
+#> assays(2): counts logcounts
 #> rownames(26369): ENSG00000238009 ENSG00000241860 ... ENSG00000278817
 #>   ENSG00000277196
 #> rowData names(7): source type ... gene_type gene_search
@@ -93,9 +89,6 @@ spe
 #> altExpNames(0):
 #> spatialCoords names(2) : pxl_col_in_fullres pxl_row_in_fullres
 #> imgData names(4): sample_id image_id data scaleFactor
-```
-
-``` r
 
 ## Show clustering results from PRECAST at k = 2
 spatialLIBD::vis_clus(spe, clustervar = 'precast_k2', is_stitched = TRUE)
