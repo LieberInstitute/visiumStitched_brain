@@ -5,9 +5,7 @@ This document describes the spot-level portion of the shiny web application made
 
 ## Slides and videos
 
-TODO
-
-You might also be interested in this video demonstration of `spatialLIBD` for the [LIBD rstats club](http://research.libd.org/rstatsclub/).
+You might be interested in this video demonstration of `spatialLIBD` for the [LIBD rstats club](http://research.libd.org/rstatsclub/).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LZ2kvCiRVdM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -17,7 +15,7 @@ Before the documentation, this tab displays the [SpatialExperiment](https://bioc
 
 ```{r}
 ## Check that you have a recent version of spatialLIBD installed
-stopifnot(packageVersion("spatialLIBD") >= "1.17.6")
+stopifnot(packageVersion("spatialLIBD") >= "1.17.8")
 
 ## Download spe data
 spe <- spatialLIBD::fetch_data(type = "visiumStitched_brain_spe")
