@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 ## Overview
 
 This repository contains the data used to demonstrate the utility of [`visiumStitched`](https://github.com/LieberInstitute/visiumStitched). Three [Visium](https://www.10xgenomics.com/products/spatial-gene-expression)
-capture areas were collected from the postmortem human brain from one donor. We use
+capture areas were collected from the postmortem human brain from one donor. We used
 [Fiji](https://imagej.net/software/fiji/) and `visiumStitched` to stitch the gene-expression and imaging
 data into one sample for downstream analysis.
 
@@ -38,35 +38,34 @@ Thank you for your interest in our work!
 
 ## Study Design
 
-TODO: add figure 1 and caption
+<img src="img/data_generation.png" align="center" />
 
-## Internal
+**Figure 1. Experimental design to generate spatially-resolved transcriptomics (SRT) data on three Visium capture arrays in the human brain.**
 
-* JHPCE location: `/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain`.
-
-The code in this repository follows the organization from https://github.com/LieberInstitute/template_project following the guidelines from [organizing-your-work](https://lcolladotor.github.io/bioc_team_ds/organizing-your-work.html#.YzL43uzMKX0).
+**(A)** Schematics illustrating a coronal human brain hemisphere at the level of the anterior striatum. Inset showing an illustration of the lateral side of the brain with a vertical red line depicting the location of the coronal slab. CC – cerebral cortex, C – caudate nucleus, P – putamen, WM – white matter.
+**(B)** Raw coronal brain slab, dissected tissue block with an indicated score line, and H&E staining of the 10 µm section taken from the same block.
+**(C)** A diagram depicting how tissue sections were arranged on the Visium slide with capture arrays A1 (blue) and D1 (yellow) arranged partially overlapping, while capture arrays D1 (yellow) and C1 (red) arranged adjacent to each other across a score line.  
 
 ## Introductory Material
 
-Check out [this guide](http://research.libd.org/visiumStitched/articles/full_demo.html) to using
-`visiumStitched`, which enabled the integration of all three capture areas for this project.
+Here is a short overview video of the stitching steps performed with [`Fiji`](https://imagej.net/software/fiji/).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kFLtpK3qbSY?si=u6bIKY5U9yccx62R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-external="1"></iframe>
 
+Check out [this guide](https://research.libd.org/visiumStitched/articles/visiumStitched.html) describing how to use
+`visiumStitched` with the outputs of `Fiji`, which enabled the integration of all three capture areas for this project. This resulted in a [`SpatialExperiment`](https://doi.org/10.1093/bioinformatics/btac299) object that can be used seamlessly for downstream analyses steps, such as performing spatially-aware clustering with tools such as [`BayesSpace`](https://doi.org/10.1038/s41587-021-00935-2) and [`PRECAST`](https://doi.org/10.1038/s41467-023-35947-w).
+
 ## Interactive Websites
 
-Explore the [Shiny app](https://libd.shinyapps.io/visiumStitched_brain), powered by
-[spatialLIBD](https://doi.org/10.1186/s12864-022-08601-w).
+Explore the stitched example data using the [interactive website](https://libd.shinyapps.io/visiumStitched_brain), powered by [spatialLIBD](https://doi.org/10.1186/s12864-022-08601-w).
 
-Alternatively, you may choose to run the app locally with [`spatialLIBD::run_app()`](http://research.libd.org/spatialLIBD/reference/run_app.html),
+Alternatively, you may choose to run the interactive website locally with [`spatialLIBD::run_app()`](http://research.libd.org/spatialLIBD/reference/run_app.html),
 which gives more freedom regarding memory usage and session length. See [this example](https://github.com/LieberInstitute/visiumStitched_brain/blob/devel/code/05_shiny/app.R)
 for invoking `spatialLIBD::run_app()` with an appropriate set of arguments.
 
 ## R Objects
 
-The transcriptomics data, SpaceRanger outputs, and Fiji outputs are all available
-through `spatialLIBD::fetch_data()`. A comprehensive vignette using these objects
-is written [here](http://research.libd.org/visiumStitched/articles/full_demo.html).
+For this human brain dataset composed of 3 Visium capture areas, the transcriptomics data, [`SpaceRanger`](https://www.10xgenomics.com/support/software/space-ranger/latest/analysis/running-pipelines/space-ranger-count) outputs, and [`Fiji`](https://imagej.net/software/fiji/) outputs are all available through `spatialLIBD::fetch_data()` (version 1.17.8 or newer). A comprehensive vignette using these objects is written [here](https://research.libd.org/visiumStitched/articles/visiumStitched.html).
 
 ```{r "pull_data", fig.height = 8, fig.width = 9}
 ## Check that you have a recent version of spatialLIBD installed
@@ -77,12 +76,30 @@ spe <- spatialLIBD::fetch_data(type = "visiumStitched_brain_spe")
 spe
 
 ## Show clustering results from PRECAST at k = 2
-spatialLIBD::vis_clus(spe, clustervar = 'precast_k2', is_stitched = TRUE)
+spatialLIBD::vis_clus(
+    spe,
+    clustervar = 'precast_k2',
+    is_stitched = TRUE,
+    colors = c(
+        "1" = "gold",
+        "2" = "darkblue",
+        "NA" = "white"
+    )
+)
 ```
 
 ## Citing Our Work
 
-TODO: manuscript citation
+Below is the citation output from using `citation('visiumStitched')` in R. Please
+run this yourself to check for any updates on how to cite __visiumStitched__.
+
+```{r 'citation_visiumStitched', eval = requireNamespace('visiumStitched')}
+print(citation("visiumStitched")[2], bibtex = TRUE)
+```
+
+Please note that `visiumStiched` was only made possible thanks to many other R and bioinformatics
+software authors, which are cited either in the vignettes and/or the paper(s) describing the
+package.
 
 ### Cite `spatialLIBD`
 
@@ -93,6 +110,8 @@ to check for any updates on how to cite __spatialLIBD__.
 print(citation("spatialLIBD")[1], bibtex = TRUE)
 ```
 
-Please note that `spatialLIBD` was only made possible thanks to many other R and bioinformatics
-software authors, which are cited either in the vignettes and/or the paper(s) describing the
-package.
+## Internal
+
+* JHPCE location: `/dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain`.
+
+The code in this repository follows the organization from https://github.com/LieberInstitute/template_project following the guidelines from [organizing-your-work](https://lcolladotor.github.io/bioc_team_ds/organizing-your-work.html#.YzL43uzMKX0).
