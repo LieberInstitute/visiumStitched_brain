@@ -28,8 +28,8 @@ Thank you for your interest in our work!
 <img src="img/data_generation.png" align="center" width="1000px" />
 
 **Figure 1. Experimental design to generate spatially-resolved
-transcriptomics (SRT) data on three Visium capture arrays in the human
-brain.**
+transcriptomics (SRT) data from postmortem human brain across three
+Visium capture areas.**
 
 **(A)** Schematics illustrating a coronal human brain hemisphere at the
 level of the anterior striatum. Inset showing an illustration of the
@@ -93,7 +93,7 @@ stopifnot(packageVersion("spatialLIBD") >= "1.17.8")
 
 ## Download the spot-level data, which is a SpatialExperiment object
 spe <- spatialLIBD::fetch_data(type = "visiumStitched_brain_spe")
-#> 2024-07-26 18:58:34.362558 loading file /Users/leocollado/Library/Caches/org.R-project.R/R/BiocFileCache/154352e7328f0_visiumStitched_brain_spe.rds%3Frlkey%3Dnq6a82u23xuu9hohr86oodwdi%26dl%3D1
+#> 2024-07-31 11:23:51.598367 loading file /Users/leocollado/Library/Caches/org.R-project.R/R/BiocFileCache/154352e7328f0_visiumStitched_brain_spe.rds%3Frlkey%3Dnq6a82u23xuu9hohr86oodwdi%26dl%3D1
 spe
 #> class: SpatialExperiment 
 #> dim: 26369 13965 

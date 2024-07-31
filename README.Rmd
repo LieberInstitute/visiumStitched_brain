@@ -42,7 +42,7 @@ Thank you for your interest in our work!
 
 <img src="img/data_generation.png" align="center" width="1000px" />
 
-**Figure 1. Experimental design to generate spatially-resolved transcriptomics (SRT) data on three Visium capture arrays in the human brain.**
+**Figure 1. Experimental design to generate spatially-resolved transcriptomics (SRT) data from postmortem human brain across three Visium capture areas.**
 
 **(A)** Schematics illustrating a coronal human brain hemisphere at the level of the anterior striatum. Inset showing an illustration of the lateral side of the brain with a vertical red line depicting the location of the coronal slab. CC – cerebral cortex, C – caudate nucleus, P – putamen, WM – white matter.
 **(B)** Raw coronal brain slab, dissected tissue block with an indicated score line, and H&E staining of the 10 µm section taken from the same block.
