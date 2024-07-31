@@ -65,6 +65,8 @@ Alternatively, you may choose to run the interactive website locally with [`spat
 which gives more freedom regarding memory usage and session length. See [this example](https://github.com/LieberInstitute/visiumStitched_brain/blob/devel/code/05_shiny/app.R)
 for invoking `spatialLIBD::run_app()` with an appropriate set of arguments.
 
+# Data Access
+
 ## R Objects
 
 For this human brain dataset composed of 3 Visium capture areas, the transcriptomics data, [`SpaceRanger`](https://www.10xgenomics.com/support/software/space-ranger/latest/analysis/running-pipelines/space-ranger-count) outputs, and [`Fiji`](https://imagej.net/software/fiji/) outputs are all available through `spatialLIBD::fetch_data()` (version 1.17.8 or newer). A comprehensive vignette using these objects is written [here](https://research.libd.org/visiumStitched/articles/visiumStitched.html).
@@ -90,7 +92,12 @@ spatialLIBD::vis_clus(
 )
 ```
 
-## Citing Our Work
+## Raw data
+
+The source data described in this manuscript are available from [Globus](http://research.libd.org/globus/) (`jhpce#visiumStitched_brain`). This includes all the input FASTQ files as well as the outputs from [`SpaceRanger`](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger).
+
+
+# Citing Our Work
 
 Below is the citation output from using `citation('visiumStitched')` in R. Please
 run this yourself to check for any updates on how to cite __visiumStitched__.
