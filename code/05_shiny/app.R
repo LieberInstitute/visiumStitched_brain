@@ -12,7 +12,7 @@ options("golem.app.prod" = TRUE)
 options(repos = BiocManager::repositories())
 
 ## Load the spe object
-spe <- loadHDF5SummarizedExperiment('spe')
+spe <- loadHDF5SummarizedExperiment("spe")
 vars <- colnames(colData(spe))
 
 ## Deploy the website
