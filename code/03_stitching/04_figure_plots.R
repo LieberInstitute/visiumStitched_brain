@@ -10,7 +10,7 @@ plot_dir = here('plots', '03_stitching')
 
 ca_colors = c("#A33B20ff", "#e7bb4100", "#3d3b8eff")
 names(ca_colors) = c("V13B23-283_C1", "V13B23-283_D1", "V13B23-283_A1")
-ca_fill = c("#A33B2000", "#e7bb41ff", "#3d3b8e00")
+ca_fill = c("transparent", "#e7bb41ff", "transparent")
 names(ca_fill) = names(ca_colors)
 cluster_colors = c(
     "#320d6d", "#BA1200", "#FFAE03", "#58A4B0", "#506DFF", "#305252",
@@ -51,7 +51,7 @@ p = colData(spe) |>
             fill = capture_area
         )
     ) +
-        geom_point(shape = 21, size = 0.5, stroke = 0.2) +
+        geom_point(shape = 21, size = 0.5, stroke = 0.15) +
         coord_fixed(
             xlim = c(min_x, max_x),
             ylim = c(min_y, max_y)
@@ -70,13 +70,13 @@ p = colData(spe) |>
         mapping = aes(
             x = pxl_col_in_fullres_rounded,
             y = min(pxl_row_in_fullres_rounded) +
-                max(pxl_row_in_fullres_rounded) - 
+                max(pxl_row_in_fullres_rounded) -
                 pxl_row_in_fullres_rounded,
             color = capture_area,
             fill = capture_area
         )
     ) +
-        geom_point(shape = 21, size = 0.5, stroke = 0.2) +
+        geom_point(shape = 21, size = 0.5, stroke = 0.15) +
         coord_fixed(
             xlim = c(min_x, max_x),
             ylim = c(min_y, max_y)
