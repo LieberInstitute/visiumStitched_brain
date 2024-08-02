@@ -12,6 +12,8 @@ ca_colors = c("#A33B20ff", "#e7bb4100", "#3d3b8eff")
 names(ca_colors) = c("V13B23-283_C1", "V13B23-283_D1", "V13B23-283_A1")
 ca_fill = c("#A33B2000", "#e7bb41ff", "#3d3b8e00")
 names(ca_fill) = names(ca_colors)
+ca_shapes = c(19, 1, 3)
+names(ca_shapes) = names(ca_colors)
 cluster_colors = c(
     "#320d6d", "#BA1200", "#FFAE03", "#58A4B0", "#506DFF", "#305252",
     "#A28B45", "#111111", "#000000"
@@ -118,9 +120,10 @@ dev.off()
 #   PRECAST results
 #-------------------------------------------------------------------------------
 
+#   Cluster assignments plotted normally with 'vis_clus'
 for (this_k in c(2, 4, 8)) {
     p = vis_clus(
-            spe, clustervar = paste0("precast_k", this_k, "stitched"),
+            spe, clustervar = paste0("precast_k", this_k, "_stitched"),
             is_stitched = TRUE, colors = cluster_colors
         ) +
         guides(fill = guide_legend(override.aes = list(size = 3)))
@@ -128,6 +131,31 @@ for (this_k in c(2, 4, 8)) {
     print(p)
     dev.off()
 }
+
+#   Array coordinates and all points, with the goal of best visualizing any
+#   agreement/disagreement at overlaps
+p = colData(spe) |>
+    cbind(spatialCoords(spe)) |>
+    as_tibble() |>
+    ggplot(
+        mapping = aes(
+            x = array_row,
+            y = 1 - array_col,
+            color = as.factor(precast_k8_stitched),
+            shape = capture_area
+        )
+    ) +
+        geom_point(size = 0.5) +
+        scale_color_manual(values = cluster_colors) +
+        scale_shape_manual(values = ca_shapes) + 
+        labs(shape = "Capture area", color = "Cluster Assignment") +
+        guides(
+            color = guide_legend(override.aes = list(size = 3)),
+            shape = guide_legend(override.aes = list(size = 3))
+        )
+pdf(file.path(this_plot_dir, 'precast_k8s_all_spots.pdf'))
+print(p)
+dev.off()
 
 #-------------------------------------------------------------------------------
 #   Agreement of PRECAST clusters at overlaps
@@ -139,11 +167,11 @@ precast_df = colData(spe) |>
     mutate(overlap_key = sub(',.*', '', overlap_key)) |>
     #   Take the non-excluded spots that overlap one in-tissue spot
     filter(!exclude_overlapping, overlap_key != "", overlap_key %in% spe$key) |>
-    select(key, overlap_key, matches('^precast_k[248]')) |>
+    select(key, overlap_key, matches('^precast_k[0-9]+')) |>
     #   Append '_original' to the PRECAST clustering results, to signify these
     #   are the results for the non-excluded spots
     rename_with(
-        ~ ifelse(grepl("^precast_k[248]", .x), paste0(.x, "_original"), .x)
+        ~ ifelse(grepl("^precast_k[0-9]+", .x), paste0(.x, "_original"), .x)
     ) |>
     #   Effectively removes spots where PRECAST has not assigned a cluster
     #   identity
@@ -154,7 +182,7 @@ precast_df = cbind(
         precast_df,
         colData(spe)[match(precast_df$overlap_key, spe$key),] |>
             as_tibble() |>
-            select(matches('^precast_k[248]')) |>
+            select(matches('^precast_k[0-9]+')) |>
             rename_with(~ paste0(.x, "_overlap"))
     ) |>
     as_tibble() |>
@@ -163,9 +191,9 @@ precast_df = cbind(
     #   Pivot longer to break into 4 columns: capture
     #   area (source), k, is stitched, and the cluster identity (assignment)
     pivot_longer(
-        cols = matches("^precast_k[248]_"),
+        cols = matches("^precast_k[0-9]+_"),
         names_to = c("k", "stitched_var", "source"),
-        names_pattern = "^precast_k([248])_(stitched|unstitched)_(overlap|original)$",
+        names_pattern = "^precast_k([0-9]+)_(stitched|unstitched)_(overlap|original)$",
         values_to = "cluster_assignment"
     ) |>
     #   Pivot wider so we can compare the cluster identities for the original
@@ -192,7 +220,7 @@ p <- precast_df |>
             x = "PRECAST k Value", y = "Proportion of Matches",
             color = "Input Data"
         ) +
-        coord_cartesian(ylim = c(0.5, 1)) +
+        coord_cartesian(ylim = c(0, 1)) +
         theme_bw(base_size = 24)
 
 pdf(file.path(this_plot_dir, 'precast_overlaps.pdf'))

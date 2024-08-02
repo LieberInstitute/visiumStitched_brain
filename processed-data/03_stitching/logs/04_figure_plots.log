@@ -1,12 +1,11 @@
 **** Job starts ****
-Fri Jul 26 04:25:20 PM EDT 2024
+Fri Aug  2 12:58:44 PM EDT 2024
 **** JHPCE info ****
 User: neagles
-Job id: 8754598
+Job id: 8914809
 Job name: 04_figure_plots
-Node name: compute-053
+Node name: compute-054
 Task id: 
-Unloading conda_R/4.4
 Loading conda_R/4.4
 
 Currently Loaded Modules:
@@ -126,6 +125,10 @@ null device
           1 
 null device 
           1 
+`summarise()` has grouped output by 'k'. You can override using the `.groups`
+argument.
+null device 
+          1 
 ─ Session info ───────────────────────────────────────────────────────────────
  setting  value
  version  R version 4.4.0 Patched (2024-05-22 r86590)
@@ -136,7 +139,7 @@ null device
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       US/Eastern
- date     2024-07-26
+ date     2024-08-02
  pandoc   3.1.13 @ /jhpce/shared/community/core/conda_R/4.4/bin/pandoc
 
 ─ Packages ───────────────────────────────────────────────────────────────────
@@ -299,4 +302,4 @@ null device
 
 ──────────────────────────────────────────────────────────────────────────────
 **** Job ends ****
-Fri Jul 26 04:26:48 PM EDT 2024
+Fri Aug  2 01:00:02 PM EDT 2024
