@@ -18,23 +18,23 @@ opt <- getopt(spec)
 print("Using the following parameters:")
 print(opt)
 
-spe_dir = here('processed-data', '03_stitching', 'spe')
-out_path = here(
-    'processed-data', '03_stitching', 'precast_out_unstitched',
-    sprintf('PRECAST_k%s.csv', opt$k)
+spe_dir <- here("processed-data", "03_stitching", "spe")
+out_path <- here(
+    "processed-data", "03_stitching", "precast_out_unstitched",
+    sprintf("PRECAST_k%s.csv", opt$k)
 )
 
-num_hvgs = 2000
+num_hvgs <- 2000
 
 set.seed(1)
 dir.create(dirname(out_path), showWarnings = FALSE)
 
-spe = loadHDF5SummarizedExperiment(spe_dir)
+spe <- loadHDF5SummarizedExperiment(spe_dir)
 
 #   PRECAST expects array coordinates in 'row' and 'col' columns. Use unstitched
 #   coordinates intentionally
-spe$row = spe$array_row_original
-spe$col = spe$array_col_original
+spe$row <- spe$array_row_original
+spe$col <- spe$array_col_original
 
 #   Create a list of three Seurat objects at the capture-area level
 seu_list = lapply(
@@ -46,12 +46,12 @@ seu_list = lapply(
             #   Bring into memory to greatly improve speed
             counts = as(assays(small_spe)$counts, "dgCMatrix"),
             meta.data = as.data.frame(colData(small_spe)),
-            project = 'visiumStitched_brain'
+            project = "visiumStitched_brain"
         )
     }
 )
 
-pre_obj = CreatePRECASTObject(
+pre_obj <- CreatePRECASTObject(
     seuList = seu_list,
     selectGenesMethod = "HVGs",
     gene.number = num_hvgs
@@ -63,20 +63,21 @@ pre_obj <- AddAdjList(pre_obj, platform = "Visium")
 #   which involves overriding some default values, though the implications are not
 #   documented
 pre_obj <- AddParSetting(
-    pre_obj, Sigma_equal = FALSE, verbose = TRUE, maxIter = 30
+    pre_obj,
+    Sigma_equal = FALSE, verbose = TRUE, maxIter = 30
 )
 
 #   Fit model
 pre_obj <- PRECAST(pre_obj, K = opt$k)
 pre_obj <- SelectModel(pre_obj)
-pre_obj = IntegrateSpaData(pre_obj, species = "Human")
+pre_obj <- IntegrateSpaData(pre_obj, species = "Human")
 
 #   Extract PRECAST results, clean up column names, and export to CSV
 pre_obj@meta.data |>
     rownames_to_column("key") |>
     as_tibble() |>
     select(-orig.ident) |>
-    rename_with(~ sub('_PRE_CAST', '', .x)) |>
+    rename_with(~ sub("_PRE_CAST", "", .x)) |>
     write_csv(out_path)
 
 session_info()

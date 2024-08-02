@@ -6,24 +6,24 @@ library(tidyverse)
 library(visiumStitched)
 library(sessioninfo)
 
-fiji_dir = here(
-    'processed-data', '03_stitching', 'fiji'
+fiji_dir <- here(
+    "processed-data", "03_stitching", "fiji"
 )
-info_out_path = here(
-    'processed-data', '03_stitching', 'sample_info.csv'
+info_out_path <- here(
+    "processed-data", "03_stitching", "sample_info.csv"
 )
 
-sample_info = tibble(
+sample_info <- tibble(
     group = "Br2719",
     capture_area = c("V13B23-283_A1", "V13B23-283_C1", "V13B23-283_D1"),
-    fiji_xml_path = file.path(fiji_dir, paste0(group, '.xml')),
-    fiji_image_path = file.path(fiji_dir, paste0(group, '.png')),
+    fiji_xml_path = file.path(fiji_dir, paste0(group, ".xml")),
+    fiji_image_path = file.path(fiji_dir, paste0(group, ".png")),
     spaceranger_dir = here(
-        'processed-data', '01_spaceranger', capture_area, 'outs', 'spatial'
+        "processed-data", "01_spaceranger", capture_area, "outs", "spatial"
     )
 )
 
-in_dir = file.path(fiji_dir, 'input')
+in_dir <- file.path(fiji_dir, "input")
 dir.create(in_dir, recursive = TRUE, showWarnings = FALSE)
 
 rescale_fiji_inputs(sample_info, in_dir) |>
