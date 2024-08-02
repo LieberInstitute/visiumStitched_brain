@@ -120,8 +120,8 @@ dev.off()
 
 for (this_k in c(2, 4, 8)) {
     p = vis_clus(
-            spe, clustervar = paste0("precast_k", this_k), is_stitched = TRUE,
-            colors = cluster_colors
+            spe, clustervar = paste0("precast_k", this_k, "stitched"),
+            is_stitched = TRUE, colors = cluster_colors
         ) +
         guides(fill = guide_legend(override.aes = list(size = 3)))
     pdf(file.path(this_plot_dir, sprintf('precast_k%s.pdf', this_k)))
@@ -139,11 +139,11 @@ precast_df = colData(spe) |>
     mutate(overlap_key = sub(',.*', '', overlap_key)) |>
     #   Take the non-excluded spots that overlap one in-tissue spot
     filter(!exclude_overlapping, overlap_key != "", overlap_key %in% spe$key) |>
-    select(key, overlap_key, matches('^precast_k[248]$')) |>
+    select(key, overlap_key, matches('^precast_k[248]')) |>
     #   Append '_original' to the PRECAST clustering results, to signify these
     #   are the results for the non-excluded spots
     rename_with(
-        ~ ifelse(grepl("^precast_k[248]$", .x), paste0(.x, "_original"), .x)
+        ~ ifelse(grepl("^precast_k[248]", .x), paste0(.x, "_original"), .x)
     ) |>
     #   Effectively removes spots where PRECAST has not assigned a cluster
     #   identity
@@ -154,17 +154,18 @@ precast_df = cbind(
         precast_df,
         colData(spe)[match(precast_df$overlap_key, spe$key),] |>
             as_tibble() |>
-            select(matches('^precast_k[248]$')) |>
+            select(matches('^precast_k[248]')) |>
             rename_with(~ paste0(.x, "_overlap"))
     ) |>
     as_tibble() |>
-    #   The colnames now include info about both the capture area (original vs.
-    #   overlap) and value of k. Pivot longer to break into 3 columns: capture
-    #   area (source), k, and the cluster identity (assignment)
+    #   The colnames now include info about the capture area (original vs.
+    #   overlap), value of k, and whether the input data was stitched.
+    #   Pivot longer to break into 4 columns: capture
+    #   area (source), k, is stitched, and the cluster identity (assignment)
     pivot_longer(
         cols = matches("^precast_k[248]_"),
-        names_to = c("k", "source"),
-        names_pattern = "^precast_k([248])_(overlap|original)$",
+        names_to = c("k", "stitched_var", "source"),
+        names_pattern = "^precast_k([248])_(stitched|unstitched)_(overlap|original)$",
         values_to = "cluster_assignment"
     ) |>
     #   Pivot wider so we can compare the cluster identities for the original
@@ -181,14 +182,17 @@ precast_df = cbind(
 #   Plot the proportion of (unique) spots that match their overlapping spot.
 #   Each boxplot contains all donors, and we split by value of k
 p <- precast_df |>
-    group_by(k) |>
+    group_by(k, stitched_var) |>
     summarize(match_rate = mean(original == overlap)) |>
     ungroup() |>
-    ggplot(mapping = aes(x = k, y = match_rate)) +
+    ggplot(mapping = aes(x = k, y = match_rate, color = stitched_var)) +
         geom_line() +
         geom_point() +
-        labs(x = "PRECAST k Value", y = "Proportion of Matches") +
-        coord_cartesian(ylim = c(0.6, 1)) +
+        labs(
+            x = "PRECAST k Value", y = "Proportion of Matches",
+            color = "Input Data"
+        ) +
+        coord_cartesian(ylim = c(0.5, 1)) +
         theme_bw(base_size = 24)
 
 pdf(file.path(this_plot_dir, 'precast_overlaps.pdf'))
