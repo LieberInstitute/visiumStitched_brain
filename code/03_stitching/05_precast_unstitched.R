@@ -36,11 +36,11 @@ spe = loadHDF5SummarizedExperiment(spe_dir)
 spe$row = spe$array_row_original
 spe$col = spe$array_col_original
 
-#   Create a list of (just one) Seurat object at the group level
+#   Create a list of three Seurat objects at the capture-area level
 seu_list = lapply(
-    unique(spe$group),
-    function(group) {
-        small_spe = spe[, spe$group == group]
+    unique(spe$capture_area),
+    function(capture_area) {
+        small_spe = spe[, spe$capture_area == capture_area]
 
         CreateSeuratObject(
             #   Bring into memory to greatly improve speed
