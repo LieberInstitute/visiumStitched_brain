@@ -4,7 +4,7 @@
 #SBATCH --job-name=03_precast
 #SBATCH -c 1
 #SBATCH -t 1-00:00:00
-#SBATCH --array=2,4,8
+#SBATCH --array=16,24
 #SBATCH -o ../../processed-data/03_stitching/logs/03_precast_%a.log
 #SBATCH -e ../../processed-data/03_stitching/logs/03_precast_%a.log
 
