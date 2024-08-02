@@ -35,11 +35,11 @@ fiji_out_zip = here(
 precast_paths = c(
     here(
         'processed-data', '03_stitching', 'precast_out',
-        sprintf('PRECAST_k%s.csv', c(2, 4, 8))
+        sprintf('PRECAST_k%s.csv', c(2, 4, 8, 16, 24))
     ),
     here(
         'processed-data', '03_stitching', 'precast_out_unstitched',
-        sprintf('PRECAST_k%s.csv', c(2, 4, 8))
+        sprintf('PRECAST_k%s.csv', c(2, 4, 8, 16, 24))
     )
 )
 

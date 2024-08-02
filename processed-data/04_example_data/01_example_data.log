@@ -1,8 +1,8 @@
 **** Job starts ****
-Fri Aug  2 10:14:19 AM EDT 2024
+Fri Aug  2 11:45:05 AM EDT 2024
 **** JHPCE info ****
 User: neagles
-Job id: 8912616
+Job id: 8914023
 Job name: 01_example_data
 Node name: compute-069
 Task id: 
@@ -190,8 +190,8 @@ The following object is masked from ‘package:rhdf5’:
 
 Loading required package: scuttle
            used  (Mb) gc trigger  (Mb) max used  (Mb)
-Ncells  8217221 438.9   12242247 653.9  9323832 498.0
-Vcells 16744459 127.8   74285415 566.8 92801682 708.1
+Ncells  8217297 438.9   12242247 653.9  9355303 499.7
+Vcells 17079003 130.4   74729390 570.2 93381292 712.5
 /dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_A1/outs 
                                                                                                                                        TRUE 
 /dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitched_brain/processed-data/04_example_data/spaceranger_subset/V13B23-283_C1/outs 
@@ -213,18 +213,6 @@ Vcells 16744459 127.8   74285415 566.8 92801682 708.1
 [1] TRUE
   adding: V13B23-283_D1/ (stored 0%)
   adding: V13B23-283_D1/outs/ (stored 0%)
-  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/ (stored 0%)
-  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
-  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
-  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
-  adding: V13B23-283_D1/outs/spatial/ (stored 0%)
-  adding: V13B23-283_D1/outs/spatial/scalefactors_json.json (deflated 30%)
-  adding: V13B23-283_D1/outs/spatial/tissue_hires_image.png (deflated 0%)
-  adding: V13B23-283_D1/outs/spatial/tissue_lowres_image.png (deflated 0%)
-  adding: V13B23-283_D1/outs/spatial/aligned_fiducials.jpg (deflated 1%)
-  adding: V13B23-283_D1/outs/spatial/tissue_positions.csv (deflated 66%)
-  adding: V13B23-283_D1/outs/spatial/spatial_enrichment.csv (deflated 66%)
-  adding: V13B23-283_D1/outs/spatial/detected_tissue_image.jpg (deflated 1%)
   adding: V13B23-283_D1/outs/analysis/ (stored 0%)
   adding: V13B23-283_D1/outs/analysis/pca/ (stored 0%)
   adding: V13B23-283_D1/outs/analysis/pca/gene_expression_10_components/ (stored 0%)
@@ -281,8 +269,24 @@ Vcells 16744459 127.8   74285415 566.8 92801682 708.1
   adding: V13B23-283_D1/outs/analysis/umap/ (stored 0%)
   adding: V13B23-283_D1/outs/analysis/umap/gene_expression_2_components/ (stored 0%)
   adding: V13B23-283_D1/outs/analysis/umap/gene_expression_2_components/projection.csv (deflated 56%)
+  adding: V13B23-283_D1/outs/spatial/ (stored 0%)
+  adding: V13B23-283_D1/outs/spatial/scalefactors_json.json (deflated 30%)
+  adding: V13B23-283_D1/outs/spatial/tissue_hires_image.png (deflated 0%)
+  adding: V13B23-283_D1/outs/spatial/tissue_lowres_image.png (deflated 0%)
+  adding: V13B23-283_D1/outs/spatial/aligned_fiducials.jpg (deflated 1%)
+  adding: V13B23-283_D1/outs/spatial/tissue_positions.csv (deflated 66%)
+  adding: V13B23-283_D1/outs/spatial/spatial_enrichment.csv (deflated 66%)
+  adding: V13B23-283_D1/outs/spatial/detected_tissue_image.jpg (deflated 1%)
+  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/ (stored 0%)
+  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
+  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
+  adding: V13B23-283_D1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
   adding: V13B23-283_C1/ (stored 0%)
   adding: V13B23-283_C1/outs/ (stored 0%)
+  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/ (stored 0%)
+  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
+  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
+  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
   adding: V13B23-283_C1/outs/analysis/ (stored 0%)
   adding: V13B23-283_C1/outs/analysis/umap/ (stored 0%)
   adding: V13B23-283_C1/outs/analysis/umap/gene_expression_2_components/ (stored 0%)
@@ -347,12 +351,20 @@ Vcells 16744459 127.8   74285415 566.8 92801682 708.1
   adding: V13B23-283_C1/outs/spatial/tissue_positions.csv (deflated 70%)
   adding: V13B23-283_C1/outs/spatial/scalefactors_json.json (deflated 30%)
   adding: V13B23-283_C1/outs/spatial/tissue_hires_image.png (deflated 0%)
-  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/ (stored 0%)
-  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
-  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
-  adding: V13B23-283_C1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
   adding: V13B23-283_A1/ (stored 0%)
   adding: V13B23-283_A1/outs/ (stored 0%)
+  adding: V13B23-283_A1/outs/spatial/ (stored 0%)
+  adding: V13B23-283_A1/outs/spatial/spatial_enrichment.csv (deflated 66%)
+  adding: V13B23-283_A1/outs/spatial/tissue_positions.csv (deflated 68%)
+  adding: V13B23-283_A1/outs/spatial/aligned_fiducials.jpg (deflated 0%)
+  adding: V13B23-283_A1/outs/spatial/detected_tissue_image.jpg (deflated 1%)
+  adding: V13B23-283_A1/outs/spatial/tissue_lowres_image.png (deflated 0%)
+  adding: V13B23-283_A1/outs/spatial/tissue_hires_image.png (deflated 0%)
+  adding: V13B23-283_A1/outs/spatial/scalefactors_json.json (deflated 29%)
+  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/ (stored 0%)
+  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
+  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
+  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
   adding: V13B23-283_A1/outs/analysis/ (stored 0%)
   adding: V13B23-283_A1/outs/analysis/clustering/ (stored 0%)
   adding: V13B23-283_A1/outs/analysis/clustering/gene_expression_kmeans_5_clusters/ (stored 0%)
@@ -409,18 +421,6 @@ Vcells 16744459 127.8   74285415 566.8 92801682 708.1
   adding: V13B23-283_A1/outs/analysis/pca/gene_expression_10_components/features_selected.csv (deflated 73%)
   adding: V13B23-283_A1/outs/analysis/pca/gene_expression_10_components/projection.csv (deflated 53%)
   adding: V13B23-283_A1/outs/analysis/pca/gene_expression_10_components/variance.csv (deflated 39%)
-  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/ (stored 0%)
-  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/matrix.mtx.gz (deflated 0%)
-  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/barcodes.tsv.gz (deflated 0%)
-  adding: V13B23-283_A1/outs/raw_feature_bc_matrix/features.tsv.gz (deflated 0%)
-  adding: V13B23-283_A1/outs/spatial/ (stored 0%)
-  adding: V13B23-283_A1/outs/spatial/spatial_enrichment.csv (deflated 66%)
-  adding: V13B23-283_A1/outs/spatial/tissue_positions.csv (deflated 68%)
-  adding: V13B23-283_A1/outs/spatial/aligned_fiducials.jpg (deflated 0%)
-  adding: V13B23-283_A1/outs/spatial/detected_tissue_image.jpg (deflated 1%)
-  adding: V13B23-283_A1/outs/spatial/tissue_lowres_image.png (deflated 0%)
-  adding: V13B23-283_A1/outs/spatial/tissue_hires_image.png (deflated 0%)
-  adding: V13B23-283_A1/outs/spatial/scalefactors_json.json (deflated 29%)
   adding: Br2719.xml (deflated 84%)
   adding: Br2719.png (deflated 0%)
 ─ Session info ───────────────────────────────────────────────────────────────
@@ -533,4 +533,4 @@ Vcells 16744459 127.8   74285415 566.8 92801682 708.1
 
 ──────────────────────────────────────────────────────────────────────────────
 **** Job ends ****
-Fri Aug  2 10:27:31 AM EDT 2024
+Fri Aug  2 11:53:44 AM EDT 2024
