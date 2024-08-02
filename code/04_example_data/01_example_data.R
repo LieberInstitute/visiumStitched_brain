@@ -32,9 +32,15 @@ fiji_out_xml = here(
 fiji_out_zip = here(
     'processed-data', '04_example_data', 'visiumStitched_brain_fiji_out.zip'
 )
-precast_paths = here(
-    'processed-data', '03_stitching', 'precast_out',
-    sprintf('PRECAST_k%s.csv', c(2, 4, 8))
+precast_paths = c(
+    here(
+        'processed-data', '03_stitching', 'precast_out',
+        sprintf('PRECAST_k%s.csv', c(2, 4, 8))
+    ),
+    here(
+        'processed-data', '03_stitching', 'precast_out_unstitched',
+        sprintf('PRECAST_k%s.csv', c(2, 4, 8))
+    )
 )
 
 dir.create(dirname(spe_out_path), showWarnings = FALSE)
@@ -51,7 +57,8 @@ set.seed(1) # For PCA
 #   object as is
 spe = loadHDF5SummarizedExperiment(spe_in_dir)
 
-#   Read in PRECAST results for all values of k and combine in wide format
+#   Read in PRECAST results for all values of k (both stitched and unstitched)
+#   and combine in wide format
 cluster_df_list = list()
 for (precast_path in precast_paths) {
     cluster_df_list[[precast_path]] = read_csv(
@@ -61,12 +68,18 @@ for (precast_path in precast_paths) {
         mutate(
             k = as.numeric(
                 str_extract(precast_path, 'PRECAST_k([0-9]+)', group = 1)
+            ),
+            stitched_var = ifelse(
+                grepl('unstitched', precast_path),
+                "unstitched",
+                "stitched"
             )
         )
 }
 cluster_df = do.call(rbind, cluster_df_list) |>
     pivot_wider(
-        names_from = k, values_from = cluster, names_prefix = 'precast_k'
+        names_from = c(k, stitched_var), values_from = cluster,
+        names_glue = 'precast_k{k}_{stitched_var}'
     )
 
 #   Add PRECAST results to colData
