@@ -49,6 +49,6 @@ message(Sys.time(), " | Running nnSVG")
 spe <- nnSVG(spe)
 
 message(Sys.time(), " | Exporting results")
-write_csv(rowData(spe), out_path)
+write_csv(as_tibble(rowData(spe)), out_path)
 
 session_info()
