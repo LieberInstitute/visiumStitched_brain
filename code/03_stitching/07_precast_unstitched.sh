@@ -4,9 +4,9 @@
 #SBATCH --job-name=07_precast_unstitched
 #SBATCH -c 1
 #SBATCH -t 1-00:00:00
-#SBATCH --array=16,24
-#SBATCH -o ../../processed-data/03_stitching/logs/07_precast_unstitched_%a.log
-#SBATCH -e ../../processed-data/03_stitching/logs/07_precast_unstitched_%a.log
+#SBATCH --array=2,4,8,16,24
+#SBATCH -o ../../processed-data/03_stitching/logs/07_precast_unstitched_SVG_%a.log
+#SBATCH -e ../../processed-data/03_stitching/logs/07_precast_unstitched_SVG_%a.log
 
 set -e
 
@@ -25,7 +25,7 @@ module load conda_R/4.4
 ## List current modules for reproducibility
 module list
 
-Rscript 07_precast_unstitched.R -k $SLURM_ARRAY_TASK_ID
+Rscript 07_precast_unstitched.R -k $SLURM_ARRAY_TASK_ID -i SVG
 
 echo "**** Job ends ****"
 date

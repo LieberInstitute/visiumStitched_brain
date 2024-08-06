@@ -1,4 +1,4 @@
-#   A version of 03_precast.* but using capture area as sample ID and initial
+#   A version of 06_precast.* but using capture area as sample ID and initial
 #   array coordinates from spaceranger
 
 library(getopt)
@@ -11,18 +11,36 @@ library(tidyverse)
 library(Matrix)
 library(SpatialExperiment)
 
-# Import command-line parameters (value of k)
-spec <- matrix(c("k", "k", "1", "numeric", "Number of clusters"), ncol = 5)
+# Import command-line parameters
+spec <- matrix(
+    c(
+        "k", "k", "1", "numeric", "Number of clusters",
+        "input_genes", "i", "1", "character", "'HVG' or 'SVG'"
+    ),
+    ncol = 5, byrow = TRUE
+)
 opt <- getopt(spec)
 
 print("Using the following parameters:")
 print(opt)
 
 spe_dir <- here("processed-data", "03_stitching", "spe")
-out_path <- here(
-    "processed-data", "03_stitching", "precast_out_unstitched",
-    sprintf("PRECAST_k%s.csv", opt$k)
-)
+if (opt$input_genes == "HVG") {
+    out_path <- here(
+        "processed-data", "03_stitching", "precast_out_unstitched",
+        sprintf("PRECAST_k%s.csv", opt$k)
+    )
+    num_hvgs <- 2000
+} else {
+    out_path <- here(
+        "processed-data", "03_stitching", "precast_out_unstitched",
+        sprintf("PRECAST_k%s_SVG.csv", opt$k)
+    )
+    svg_path = here(
+        "processed-data", "03_stitching", "nnSVG_out_unstitched",
+        "top500_SVGs.txt"
+    )
+}
 
 num_hvgs <- 2000
 
@@ -51,11 +69,20 @@ seu_list = lapply(
     }
 )
 
-pre_obj <- CreatePRECASTObject(
-    seuList = seu_list,
-    selectGenesMethod = "HVGs",
-    gene.number = num_hvgs
-)
+#   Run PRECAST using either HVGs or SVGs as input
+if (opt$input_genes == "HVG") {
+    pre_obj <- CreatePRECASTObject(
+        seuList = seu_list,
+        selectGenesMethod = "HVGs",
+        gene.number = num_hvgs
+    )
+} else {
+    pre_obj <- CreatePRECASTObject(
+        seuList = seu_list,
+        selectGenesMethod = NULL,
+        customGenelist = readLines(svg_path)
+    )
+}
 
 pre_obj <- AddAdjList(pre_obj, platform = "Visium")
 
