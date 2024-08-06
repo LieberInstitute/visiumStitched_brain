@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH -p shared
 #SBATCH --mem=5G
-#SBATCH --job-name=04_figure_plots
+#SBATCH --job-name=08_figure_plots
 #SBATCH -c 1
 #SBATCH -t 1:00:00
-#SBATCH -o ../../processed-data/03_stitching/logs/04_figure_plots.log
-#SBATCH -e ../../processed-data/03_stitching/logs/04_figure_plots.log
+#SBATCH -o ../../processed-data/03_stitching/logs/08_figure_plots.log
+#SBATCH -e ../../processed-data/03_stitching/logs/08_figure_plots.log
 
 set -e
 
@@ -24,7 +24,7 @@ module load conda_R/4.4
 ## List current modules for reproducibility
 module list
 
-Rscript 04_figure_plots.R
+Rscript 08_figure_plots.R
 
 echo "**** Job ends ****"
 date

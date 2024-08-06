@@ -1,12 +1,11 @@
 #!/bin/bash
 #SBATCH -p shared
-#SBATCH --mem=10G
-#SBATCH --job-name=06_nnSVG_unstitched
+#SBATCH --mem=5G
+#SBATCH --job-name=05_gather_nnSVG
 #SBATCH -c 1
-#SBATCH -t 1-00:00:00
-#SBATCH --array=1-3%3
-#SBATCH -o ../../processed-data/03_stitching/logs/06_nnSVG_unstitched_%a.log
-#SBATCH -e ../../processed-data/03_stitching/logs/06_nnSVG_unstitched_%a.log
+#SBATCH -t 1:00:00
+#SBATCH -o ../../processed-data/03_stitching/logs/05_gather_nnSVG.log
+#SBATCH -e ../../processed-data/03_stitching/logs/05_gather_nnSVG.log
 
 set -e
 
@@ -25,7 +24,7 @@ module load conda_R/4.4
 ## List current modules for reproducibility
 module list
 
-Rscript 06_nnSVG_unstitched.R
+Rscript 05_gather_nnSVG.R
 
 echo "**** Job ends ****"
 date

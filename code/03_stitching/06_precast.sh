@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH -p shared
 #SBATCH --mem=20G
-#SBATCH --job-name=03_precast
+#SBATCH --job-name=06_precast
 #SBATCH -c 1
 #SBATCH -t 1-00:00:00
 #SBATCH --array=16,24
-#SBATCH -o ../../processed-data/03_stitching/logs/03_precast_%a.log
-#SBATCH -e ../../processed-data/03_stitching/logs/03_precast_%a.log
+#SBATCH -o ../../processed-data/06_stitching/logs/06_precast_%a.log
+#SBATCH -e ../../processed-data/06_stitching/logs/06_precast_%a.log
 
 set -e
 
@@ -25,7 +25,7 @@ module load conda_R/4.4
 ## List current modules for reproducibility
 module list
 
-Rscript 03_precast.R -k $SLURM_ARRAY_TASK_ID
+Rscript 06_precast.R -k $SLURM_ARRAY_TASK_ID
 
 echo "**** Job ends ****"
 date
