@@ -62,7 +62,7 @@ seu_list <- lapply(
     }
 )
 
-#   Run PRECAST using either HVGs or SVGs as input
+#   Run PRECAST using either HVGs or SVGs as input.
 if (opt$input_genes == "HVG") {
     pre_obj <- CreatePRECASTObject(
         seuList = seu_list,
@@ -79,7 +79,10 @@ if (opt$input_genes == "HVG") {
         selectGenesMethod = NULL,
         customGenelist = readLines(svg_path),
         #   Here defaults are multiplied by 3 to reflect the fact that we're
-        #   including spots from 3 capture areas, not 1
+        #   including spots from 3 capture areas, not 1. Note that really,
+        #   'premin.spots' and 'postmin.spots' were meant to be set to 0 to
+        #   not perform additional filtering of input SVGs, but by
+        #   coincidence, the actual values were low enough to retain all SVGs
         premin.spots = 60,
         postmin.spots = 45
     )
