@@ -24,7 +24,7 @@ spatialLIBD::run_app(
     title = "visiumStitched_brain",
     spe_discrete_vars = c(
         "ManualAnnotation",
-        vars[grep("^precast_k[248]$", vars)],
+        vars[grep("^precast_k[248]", vars)],
         "scran_quick_cluster"
     ),
     spe_continuous_vars = c(
@@ -33,7 +33,7 @@ spatialLIBD::run_app(
         "expr_chrM",
         "expr_chrM_ratio"
     ),
-    default_cluster = "precast_k2",
+    default_cluster = "precast_k2_stitched",
     docs_path = "www",
     is_stitched = TRUE
 )
