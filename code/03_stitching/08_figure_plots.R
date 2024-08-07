@@ -143,31 +143,6 @@ for (this_k in c(2, 4, 8, 16, 24)) {
     }
 }
 
-#   Array coordinates and all points, with the goal of best visualizing any
-#   agreement/disagreement at overlaps
-p = colData(spe) |>
-    cbind(spatialCoords(spe)) |>
-    as_tibble() |>
-    ggplot(
-        mapping = aes(
-            x = array_row,
-            y = 1 - array_col,
-            color = as.factor(precast_k8_stitched),
-            shape = capture_area
-        )
-    ) +
-        geom_point(size = 0.5) +
-        scale_color_manual(values = cluster_colors) +
-        scale_shape_manual(values = ca_shapes) + 
-        labs(shape = "Capture area", color = "Cluster Assignment") +
-        guides(
-            color = guide_legend(override.aes = list(size = 3)),
-            shape = guide_legend(override.aes = list(size = 3))
-        )
-pdf(file.path(this_plot_dir, 'precast_k8s_all_spots.pdf'))
-print(p)
-dev.off()
-
 #-------------------------------------------------------------------------------
 #   Agreement of PRECAST clusters at overlaps
 #-------------------------------------------------------------------------------
@@ -237,5 +212,34 @@ p <- precast_df |>
 pdf(file.path(this_plot_dir, "precast_overlaps.pdf"))
 print(p)
 dev.off()
+
+#   Add array coordinates
+spot_df = colData(spe) |>
+    as_tibble() |>
+    select(c(key, array_row, array_col)) |>
+    left_join(precast_df, by = 'key') |>
+    mutate(is_match = original == overlap)
+
+#   Spot plots colored by whether cluster assignments agree at a given array
+#   coordinate. Plot for all k and for both stitched and unstitched data
+for (this_k in c(2, 4, 8, 16, 24)) {
+    for (this_stitched_var in c("stitched", "unstitched")) {
+        p = spot_df |>
+            filter(
+                k == {{ this_k }}, stitched_var == {{ this_stitched_var }}
+            ) |>
+            ggplot(aes(x = array_row, y = 1 - array_col, color = is_match)) +
+                geom_point(size = 0.7)
+
+        pdf(
+            file.path(
+                this_plot_dir,
+                sprintf("overlaps_k%s_%s.pdf", this_k, this_stitched_var)
+            )
+        )
+        print(p)
+        dev.off()
+    }
+}
 
 session_info()
