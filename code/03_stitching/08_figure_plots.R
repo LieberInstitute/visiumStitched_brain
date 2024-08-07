@@ -151,8 +151,14 @@ precast_df <- colData(spe) |>
     as_tibble() |>
     #   Take just the first spot that overlaps
     mutate(overlap_key = sub(",.*", "", overlap_key)) |>
-    #   Take the non-excluded spots that overlap one in-tissue spot
-    filter(!exclude_overlapping, overlap_key != "", overlap_key %in% spe$key) |>
+    #   Take the non-excluded spots that overlap one in-tissue spot from a
+    #   different capture area
+    filter(
+        !exclude_overlapping,
+        overlap_key != "",
+        overlap_key %in% spe$key,
+        str_split_i(key,  '-1_', 2) != str_split_i(overlap_key,  '-1_', 2)
+    ) |>
     select(key, overlap_key, matches('^precast_k[0-9]+')) |>
     #   Append '_original' to the PRECAST clustering results, to signify these
     #   are the results for the non-excluded spots
@@ -212,6 +218,22 @@ p <- precast_df |>
 pdf(file.path(this_plot_dir, "precast_overlaps.pdf"))
 print(p)
 dev.off()
+
+#   Compare agreement at k = 8 for manuscript
+temp = precast_df |>
+    filter(k == 8) |>
+    group_by(stitched_var) |>
+    summarize(match_rate = mean(original == overlap)) |>
+    ungroup()
+
+a = temp |> filter(stitched_var == 'unstitched') |> pull(match_rate)
+b = temp |> filter(stitched_var == 'stitched') |> pull(match_rate)
+message(
+    sprintf(
+        "At k = 8, agreement of PRECAST assignments was %s for unstitched and %s for stitched (%s%% increase)",
+        a, b, 100 * b / a - 100
+    )
+)
 
 #   Add array coordinates
 spot_df = colData(spe) |>
