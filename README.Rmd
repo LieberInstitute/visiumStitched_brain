@@ -82,7 +82,7 @@ spe
 ## Show clustering results from PRECAST at k = 2
 spatialLIBD::vis_clus(
     spe,
-    clustervar = 'precast_k2',
+    clustervar = 'precast_k2_stitched',
     is_stitched = TRUE,
     colors = c(
         "1" = "gold",
