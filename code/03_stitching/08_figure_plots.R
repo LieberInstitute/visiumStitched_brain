@@ -120,16 +120,27 @@ dev.off()
 #   PRECAST results
 #-------------------------------------------------------------------------------
 
-#   Cluster assignments plotted normally with 'vis_clus'
-for (this_k in c(2, 4, 8)) {
-    p = vis_clus(
-            spe, clustervar = paste0("precast_k", this_k, "_stitched"),
-            is_stitched = TRUE, colors = cluster_colors
-        ) +
-        guides(fill = guide_legend(override.aes = list(size = 3)))
-    pdf(file.path(this_plot_dir, sprintf("precast_k%s.pdf", this_k)))
-    print(p)
-    dev.off()
+#   Cluster assignments plotted normally with 'vis_clus', for stitched and
+#   unstitched data at all values of k
+for (this_k in c(2, 4, 8, 16, 24)) {
+    for (stitched_var in c("stitched", "unstitched")) {
+        cluster_var = sprintf("precast_k%s_%s", this_k, stitched_var)
+        if (this_k <= 8) {
+            #   Use custom colors for lower values of k
+            p = vis_clus(
+                    spe, clustervar = cluster_var,
+                    is_stitched = TRUE, colors = cluster_colors
+                ) +
+                guides(fill = guide_legend(override.aes = list(size = 3)))
+        } else {
+            p = vis_clus(spe, clustervar = cluster_var, is_stitched = TRUE) +
+                guides(fill = guide_legend(override.aes = list(size = 3)))
+        }
+    
+        pdf(file.path(this_plot_dir, paste0(cluster_var, ".pdf")))
+        print(p)
+        dev.off()
+    }
 }
 
 #   Array coordinates and all points, with the goal of best visualizing any
