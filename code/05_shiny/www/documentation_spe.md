@@ -29,7 +29,7 @@ Throughout the rest of this document, we'll refer to this object by the name `sp
 * `Discrete variable to plot`: which discrete variable (typically with the cluster labels) to visualize. We include the clusters:
   - `ManualAnnotation`: your own manual annotation of the spots.
   - `scran_quick_cluster`: added by `scran::quickCluster()` in preparation for performing log normalization.
-  - `precast_k*`: cluster assignments computed by running PRECAST at each specified value of k.
+  - `precast_k*_(un)stitched`: cluster assignments computed by running [`PRECAST`](https://doi.org/10.1038/s41467-023-35947-w) at each specified value of `k`. `PRECAST` was run using the top 500 spatially variable genes (SVGs) identified with [`nnSVG`](https://doi.org/10.1038/s41467-023-39748-z). These variables either have a`_unstitched` or `_stitched` suffix, labeling whether `nnSVG` and `PRECAST` were run without stitching the capture areas together or after stitching them with `visiumStitched`.
 * `Continuous variable(s) to plot`: which gene(s) or continuous variable(s) (such as the cell count, the ratio of the mitochondrial chromosome expression) to visualize in the gene tabs as well as on the `clusters (interactive)` tab. Multiple choices may be selected, in which case "Multi-gene method" controls the method used to combine information from all selected variables. Details:
   - `sum_umi`: sum of UMI counts across a spot.
   - `sum_gene`: number of genes with non-zero counts in a spot.
