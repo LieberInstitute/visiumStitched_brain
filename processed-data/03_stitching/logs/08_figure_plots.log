@@ -1,10 +1,10 @@
 **** Job starts ****
-Wed Aug  7 12:32:25 PM EDT 2024
+Wed Aug  7 02:38:37 PM EDT 2024
 **** JHPCE info ****
 User: neagles
-Job id: 8998089
+Job id: 9000587
 Job name: 08_figure_plots
-Node name: compute-152
+Node name: compute-147
 Task id: 
 Loading conda_R/4.4
 
@@ -123,12 +123,11 @@ null device
           1 
 null device 
           1 
-null device 
-          1 
 `summarise()` has grouped output by 'k'. You can override using the `.groups`
 argument.
 null device 
           1 
+At k = 8, agreement of PRECAST assignments was 0.487962962962963 for unstitched and 0.768518518518518 for stitched (57.4952561669829% increase)
 ─ Session info ───────────────────────────────────────────────────────────────
  setting  value
  version  R version 4.4.0 Patched (2024-05-22 r86590)
@@ -303,4 +302,4 @@ null device
 
 ──────────────────────────────────────────────────────────────────────────────
 **** Job ends ****
-Wed Aug  7 12:33:26 PM EDT 2024
+Wed Aug  7 02:39:58 PM EDT 2024
