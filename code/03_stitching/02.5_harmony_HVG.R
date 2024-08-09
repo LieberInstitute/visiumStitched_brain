@@ -14,5 +14,13 @@ hvg_out_path = here("processed-data", "03_stitching", "HVGs.txt")
 
 spe <- loadHDF5SummarizedExperiment(spe_dir)
 
+## From
+## https://bioconductor.org/packages/release/bioc/vignettes/scran/inst/doc/scran.html#3_Variance_modelling
+dec <- modelGeneVar(spe, block = spe$capture_area)
+top_hvgs <- getTopHVGs(dec, prop = 0.1)
+
+spe = runPCA(spe, subset_row = top_hvgs, ncomponents = 50)
+spe <- RunHarmony(spe, "capture_area", verbose = FALSE)
+
 saveHDF5SummarizedExperiment(spe, spe_out_dir)
 writeLines(top_hvgs, con = hvg_out_path)
