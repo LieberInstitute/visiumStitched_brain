@@ -30,7 +30,7 @@ if (opt$input_genes == "HVG") {
         "processed-data", "03_stitching", "precast_out_unstitched",
         sprintf("PRECAST_k%s.csv", opt$k)
     )
-    num_hvgs <- 2000
+    hvg_path = here("processed-data", "03_stitching", "HVGs.txt")
 } else {
     out_path <- here(
         "processed-data", "03_stitching", "precast_out_unstitched",
@@ -41,8 +41,6 @@ if (opt$input_genes == "HVG") {
         "top500_SVGs.txt"
     )
 }
-
-num_hvgs <- 2000
 
 set.seed(1)
 dir.create(dirname(out_path), showWarnings = FALSE)
@@ -73,8 +71,8 @@ seu_list = lapply(
 if (opt$input_genes == "HVG") {
     pre_obj <- CreatePRECASTObject(
         seuList = seu_list,
-        selectGenesMethod = "HVGs",
-        gene.number = num_hvgs
+        selectGenesMethod = NULL,
+        customGenelist = readLines(hvg_path),
     )
 } else {
     pre_obj <- CreatePRECASTObject(

@@ -27,7 +27,7 @@ if (opt$input_genes == "HVG") {
         "processed-data", "03_stitching", "precast_out",
         sprintf("PRECAST_k%s.csv", opt$k)
     )
-    num_hvgs <- 2000
+    hvg_path = here("processed-data", "03_stitching", "HVGs.txt")
 } else {
     out_path <- here(
         "processed-data", "03_stitching", "precast_out",
@@ -66,8 +66,8 @@ seu_list <- lapply(
 if (opt$input_genes == "HVG") {
     pre_obj <- CreatePRECASTObject(
         seuList = seu_list,
-        selectGenesMethod = "HVGs",
-        gene.number = num_hvgs,
+        selectGenesMethod = NULL,
+        customGenelist = readLines(hvg_path),
         #   Here defaults are multiplied by 3 to reflect the fact that we're
         #   including spots from 3 capture areas, not 1
         premin.spots = 60,
