@@ -67,7 +67,7 @@ spe <- RunHarmony(
 
 message("Saving results...")
 reducedDims(spe)$PCA = NULL
-saveHDF5SummarizedExperiment(spe, spe_out_dir)
+saveHDF5SummarizedExperiment(spe, spe_out_dir, replace = TRUE)
 writeLines(top_hvgs, con = hvg_out_path)
 
 session_info()
