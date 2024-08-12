@@ -12,7 +12,7 @@ spe_in_dir <- here("processed-data", "03_stitching", "spe")
 spe_out_dir <- here("processed-data", "03_stitching", "spe_harmony")
 hvg_out_path = here("processed-data", "03_stitching", "HVGs.txt")
 
-spe <- loadHDF5SummarizedExperiment(spe_dir)
+spe <- loadHDF5SummarizedExperiment(spe_in_dir)
 
 ## From
 ## https://bioconductor.org/packages/release/bioc/vignettes/scran/inst/doc/scran.html#3_Variance_modelling
