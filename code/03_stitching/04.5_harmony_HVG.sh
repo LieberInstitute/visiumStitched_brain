@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH -p shared
 #SBATCH --mem=10G
-#SBATCH --job-name=025_harmony_HVG
+#SBATCH --job-name=045_harmony_HVG
 #SBATCH -c 1
 #SBATCH -t 8:00:00
-#SBATCH -o ../../processed-data/03_stitching/logs/025_harmony_HVG.log
-#SBATCH -e ../../processed-data/03_stitching/logs/025_harmony_HVG.log
+#SBATCH -o ../../processed-data/03_stitching/logs/045_harmony_HVG.log
+#SBATCH -e ../../processed-data/03_stitching/logs/045_harmony_HVG.log
 
 set -e
 
@@ -24,7 +24,7 @@ module load conda_R/4.4
 ## List current modules for reproducibility
 module list
 
-Rscript 02.5_harmony_HVG.R
+Rscript 04.5_harmony_HVG.R
 
 echo "**** Job ends ****"
 date
