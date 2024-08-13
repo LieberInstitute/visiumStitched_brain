@@ -95,9 +95,10 @@ p = cluster_df |>
         geom_point() +
         geom_line() +
         facet_wrap(~method) +
-        theme_bw(base_size = 15) +
+        theme_bw(base_size = 18) +
+        coord_cartesian(ylim = c(0, 1)) +
         labs(y = "Match Rate", linetype = "Gene Input", color = "Stitching")
-pdf(file.path(plot_dir, 'agreement_at_overlaps.pdf'))
+pdf(file.path(plot_dir, 'agreement_at_overlaps.pdf'), width = 8, height = 6)
 print(p)
 dev.off()
 
