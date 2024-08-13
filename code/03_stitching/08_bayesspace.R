@@ -32,7 +32,7 @@ out_path = here(
 if (opt$gene_var == "HVG") {
     harmony_name = "HARMONY_HVG"
 } else {
-    harmony_name = sprintf("HARMONY_%s_%s", opt$stitched_var, opt$gene_var)
+    harmony_name = sprintf("HARMONY_%s_%s", opt$gene_var, opt$stitched_var)
 }
 
 set.seed(1)

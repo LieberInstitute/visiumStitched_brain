@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH -p shared
-#SBATCH --mem=20G
+#SBATCH -p katun
+#SBATCH --mem=50G
 #SBATCH --job-name=08_bayesspace
 #SBATCH -c 1
 #SBATCH -t 8:00:00
 #SBATCH -o /dev/null
 #SBATCH -e /dev/null
-#SBATCH --array=2-20%10
+#SBATCH --array=5,6,7,8,9,12,13,15,16,17,18,19,20%10
 
 ## Define loops and appropriately subset each variable for the array task ID
 all_stitched_var=(stitched unstitched)
