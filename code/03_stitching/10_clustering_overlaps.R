@@ -23,6 +23,8 @@ cluster_paths = c(
         full.names = TRUE
     )
 )
+gene_linetype = c('solid', 'dashed', 'dotted')
+names(gene_linetype) = c('SVG', 'HVG_Bioc', 'HVG_PRECAST')
 
 spe = loadHDF5SummarizedExperiment(spe_in_dir)
 
@@ -37,10 +39,10 @@ for (cluster_path in cluster_paths) {
             k = as.integer(
                 str_extract(basename(cluster_path), 'k([0-9]+)', group = 1)
             ),
-            gene_var = ifelse(
-                grepl('SVG\\.csv$', cluster_path),
-                "SVG",
-                "HVG"
+            gene_var = case_when(
+                grepl('SVG\\.csv$', cluster_path) ~ "SVG",
+                grepl('HVG_old\\.csv$', cluster_path) ~ "HVG_PRECAST",
+                TRUE ~ "HVG_Bioc"
             ),
             stitched_var = ifelse(
                 grepl('unstitched', cluster_path),
@@ -88,6 +90,7 @@ cluster_df <- do.call(rbind, cluster_df_list) |>
         str_split_i(key,  '-1_', 2) != str_split_i(overlap_key,  '-1_', 2)
     )
 
+#   Include PRECAST-computed HVGs in this plot
 p = cluster_df |>
     group_by(k, gene_var, stitched_var, method) |>
     summarize(match_rate = mean(cluster_original == cluster_overlap)) |>
@@ -95,10 +98,38 @@ p = cluster_df |>
         geom_point() +
         geom_line() +
         facet_wrap(~method) +
+        scale_linetype_manual(values = gene_linetype) +
         theme_bw(base_size = 18) +
         coord_cartesian(ylim = c(0, 1)) +
         labs(y = "Match Rate", linetype = "Gene Input", color = "Stitching")
-pdf(file.path(plot_dir, 'agreement_at_overlaps.pdf'), width = 8, height = 6)
+pdf(
+    file.path(plot_dir, 'agreement_at_overlaps_internal.pdf'),
+    width = 8, height = 6
+)
+print(p)
+dev.off()
+
+#   Don't include PRECAST-computed HVGs in this plot
+gene_linetype = c('solid', 'dashed')
+names(gene_linetype) = c('SVG', 'HVG')
+
+p = cluster_df |>
+    filter(gene_var != "HVG_PRECAST") |>
+    mutate(gene_var = ifelse(gene_var == "HVG_Bioc", "HVG", "SVG")) |>
+    group_by(k, gene_var, stitched_var, method) |>
+    summarize(match_rate = mean(cluster_original == cluster_overlap)) |>
+    ggplot(aes(x = k, y = match_rate, color = stitched_var, linetype = gene_var)) +
+        geom_point() +
+        geom_line() +
+        facet_wrap(~method) +
+        scale_linetype_manual(values = gene_linetype) +
+        theme_bw(base_size = 18) +
+        coord_cartesian(ylim = c(0, 1)) +
+        labs(y = "Match Rate", linetype = "Gene Input", color = "Stitching")
+pdf(
+    file.path(plot_dir, 'agreement_at_overlaps.pdf'),
+    width = 8, height = 6
+)
 print(p)
 dev.off()
 
