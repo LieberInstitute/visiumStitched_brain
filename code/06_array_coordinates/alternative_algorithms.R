@@ -51,7 +51,6 @@ fit_euclidean = function(
         ideal_coords = .construct_array(coords, inter_spot_dist_px)
     ) {
     coords_list = list()
-    err_list_big = list()
     for (this_capture_area in unique(coords$capture_area)) {
         this_ideal_coords = ideal_coords |>
             select(
@@ -65,7 +64,6 @@ fit_euclidean = function(
             as.matrix()
         
         array_list = list()
-        err_list = list()
         for (i in seq(nrow(this_coords))) {
             #   Calculate the squared distance to all possible destination spots
             sq_err = rowSums(
@@ -84,7 +82,6 @@ fit_euclidean = function(
             array_list[[i]] = this_ideal_coords[
                 min_index, c("array_row", "array_col")
             ]
-            err_list[[i]] = sq_err[min_index]
 
             if (no_duplicates) {
                 #   Don't allow matching to these array coordinates in the
@@ -99,7 +96,6 @@ fit_euclidean = function(
             arrange(pxl_row_in_fullres, pxl_col_in_fullres) |>
             cbind(do.call(rbind, array_list)) |>
             as_tibble()
-        err_list_big[[this_capture_area]] = unlist(err_list)
     }
 
     coords_new = do.call(rbind, coords_list) |>
@@ -107,8 +103,7 @@ fit_euclidean = function(
             pxl_col_in_fullres_rounded = min(pxl_col_in_fullres) + 
                 array_row * inter_spot_dist_px * cos(pi / 6),
             pxl_row_in_fullres_rounded = max(pxl_row_in_fullres) - 
-                array_col * inter_spot_dist_px / 2,
-            err = unlist(err_list_big) ** 0.5 / inter_spot_dist_px
+                array_col * inter_spot_dist_px / 2
         )
     
     return(coords_new)
