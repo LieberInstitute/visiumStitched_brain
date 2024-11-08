@@ -95,7 +95,8 @@ stopifnot(packageVersion("spatialLIBD") >= "1.17.8")
 
 ## Download the spot-level data, which is a SpatialExperiment object
 spe <- spatialLIBD::fetch_data(type = "visiumStitched_brain_spe")
-#> 2024-08-07 14:45:01.414072 loading file /Users/leocollado/Library/Caches/org.R-project.R/R/BiocFileCache/1769558ae4ac_visiumStitched_brain_spe.rds%3Frlkey%3Dnq6a82u23xuu9hohr86oodwdi%26dl%3D1
+#> snapshotDate(): 2024-04-29
+#> 2024-11-08 13:11:50.246365 loading file /users/neagles/.cache/R/BiocFileCache/f5fa60825608_visiumStitched_brain_spe.rds%3Frlkey%3Dnq6a82u23xuu9hohr86oodwdi%26dl%3D1
 spe
 #> class: SpatialExperiment 
 #> dim: 26369 13965 
@@ -145,11 +146,12 @@ R. Please run this yourself to check for any updates on how to cite
 **visiumStitched**.
 
 ``` r
-print(citation("visiumStitched")[2], bibtex = TRUE)
+print(citation("visiumStitched")[2], bibtex = TRUE) 
 #> Eagles NJ, Bach S, Tippani M, Ravichandran P, Du Y, Miller RA, Hyde TM,
-#> Page SC, Martinowich K, Collado-Torres L (2024). "visiumStitched."
-#> _bioRxiv_. doi:10.1101/TODO <https://doi.org/10.1101/TODO>,
-#> <https://www.biorxiv.org/content/10.1101/TODO>.
+#> Page SC, Martinowich K, Collado-Torres L (2024). "visiumStitched." _BMC
+#> Genomics_. doi:10.1186/s12864-024-10991-y
+#> <https://doi.org/10.1186/s12864-024-10991-y>,
+#> <doi.org/10.1186/s12864-024-10991-y>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -157,9 +159,9 @@ print(citation("visiumStitched")[2], bibtex = TRUE)
 #>     title = {visiumStitched},
 #>     author = {Nicholas J. Eagles and Svitlana Bach and Madhavi Tippani and Prashanthi Ravichandran and Yufeng Du and Ryan A. Miller and Thomas M. Hyde and Stephanie C. Page and Keri Martinowich and Leonardo Collado-Torres},
 #>     year = {2024},
-#>     journal = {bioRxiv},
-#>     doi = {10.1101/TODO},
-#>     url = {https://www.biorxiv.org/content/10.1101/TODO},
+#>     journal = {BMC Genomics},
+#>     doi = {10.1186/s12864-024-10991-y},
+#>     url = {doi.org/10.1186/s12864-024-10991-y},
 #>   }
 ```
 
