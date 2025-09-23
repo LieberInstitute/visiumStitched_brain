@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH -p katun
 #SBATCH --mem=20G
-#SBATCH --job-name=06_precast
+#SBATCH --job-name=02_precast
 #SBATCH -c 1
 #SBATCH -t 1-00:00:00
+#SBATCH -o ../../processed-data/07_post_manuscript/logs/02_precast_SVG_%a.log
+#SBATCH -e ../../processed-data/07_post_manuscript/logs/02_precast_SVG_%a.log
 #SBATCH --array=2,4,8,16,24
-#SBATCH -o ../../processed-data/07_post_manuscript/logs/06_precast_HVG_%a.log
-#SBATCH -e ../../processed-data/07_post_manuscript/logs/06_precast_HVG_%a.log
 
 set -e
 
@@ -25,7 +25,7 @@ module load conda_R/4.5
 ## List current modules for reproducibility
 module list
 
-Rscript 06_precast.R -k $SLURM_ARRAY_TASK_ID -i HVG
+Rscript 02_precast.R -k $SLURM_ARRAY_TASK_ID -i SVG
 
 echo "**** Job ends ****"
 date
