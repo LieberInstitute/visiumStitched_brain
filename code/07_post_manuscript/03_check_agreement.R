@@ -12,7 +12,7 @@ precast_paths <- c(
         sprintf('PRECAST_k%s_SVG.csv', c(2, 4, 8, 16, 24))
     ),
     here(
-        'processed-data', '03_stitching', 'precast_out_unstitched',
+        'processed-data', '03_stitching', 'precast_out',
         sprintf('PRECAST_k%s_SVG.csv', c(2, 4, 8, 16, 24))
     )
 )
@@ -36,9 +36,9 @@ for (precast_path in precast_paths) {
                 str_extract(precast_path, 'PRECAST_k([0-9]+)', group = 1)
             ),
             stitched_var = ifelse(
-                grepl('unstitched', precast_path),
-                "unstitched",
-                "stitched"
+                grepl('03_stitching', precast_path),
+                "Euclidean",
+                "LSAP"
             )
         )
 }
@@ -57,7 +57,7 @@ colData(spe) <- colData(spe) |>
 colnames(spe) <- temp
 
 #   Quickly check k = 8 results
-for (cluster_var in c('precast_k8_stitched', 'precast_k8_unstitched')) {
+for (cluster_var in c('precast_k8_LSAP', 'precast_k8_Euclidean')) {
     p = vis_clus(spe, clustervar = cluster_var, is_stitched = TRUE)
     pdf(file.path(plot_dir, sprintf("%s.pdf", cluster_var)))
     print(p)
@@ -106,7 +106,7 @@ precast_df <- cbind(
     pivot_longer(
         cols = matches("^precast_k[0-9]+_"),
         names_to = c("k", "stitched_var", "source"),
-        names_pattern = "^precast_k([0-9]+)_(stitched|unstitched)_(overlap|original)$",
+        names_pattern = "^precast_k([0-9]+)_(Euclidean|LSAP)_(overlap|original)$",
         values_to = "cluster_assignment"
     ) |>
     #   Pivot wider so we can compare the cluster identities for the original
@@ -147,11 +147,11 @@ temp = precast_df |>
     summarize(match_rate = mean(original == overlap)) |>
     ungroup()
 
-a = temp |> filter(stitched_var == 'unstitched') |> pull(match_rate)
-b = temp |> filter(stitched_var == 'stitched') |> pull(match_rate)
+a = temp |> filter(stitched_var == 'Euclidean') |> pull(match_rate)
+b = temp |> filter(stitched_var == 'LSAP') |> pull(match_rate)
 message(
     sprintf(
-        "At k = 8, agreement of PRECAST assignments was %s for unstitched and %s for stitched (%s%% increase)",
+        "At k = 8, agreement of PRECAST assignments was %s for Euclidean and %s for LSAP (%s%% increase)",
         a, b, 100 * b / a - 100
     )
 )

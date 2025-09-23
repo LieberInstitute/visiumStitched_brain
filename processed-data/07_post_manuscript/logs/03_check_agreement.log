@@ -1,8 +1,8 @@
 **** Job starts ****
-Tue Sep 23 12:40:36 PM EDT 2025
+Tue Sep 23 12:47:11 PM EDT 2025
 **** JHPCE info ****
 User: neagles
-Job id: 22697955
+Job id: 22698264
 Job name: 03_check_agreement
 Node name: compute-093
 Task id: 
@@ -170,7 +170,7 @@ here() starts at /dcs05/lieber/lcolladotor/visiumStitched_LIBD1070/visiumStitche
 argument.
 null device 
           1 
-At k = 8, agreement of PRECAST assignments was 0.488773747841105 for unstitched and 0.77979274611399 for stitched (59.5406360424028% increase)
+At k = 8, agreement of PRECAST assignments was 0.764248704663212 for Euclidean and 0.77979274611399 for LSAP (2.03389830508473% increase)
 ─ Session info ───────────────────────────────────────────────────────────────
  setting  value
  version  R version 4.5.0 Patched (2025-05-21 r88220)
@@ -350,4 +350,4 @@ At k = 8, agreement of PRECAST assignments was 0.488773747841105 for unstitched 
 
 ──────────────────────────────────────────────────────────────────────────────
 **** Job ends ****
-Tue Sep 23 12:41:11 PM EDT 2025
+Tue Sep 23 12:47:46 PM EDT 2025
