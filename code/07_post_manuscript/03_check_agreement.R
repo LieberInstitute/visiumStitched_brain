@@ -56,6 +56,14 @@ colData(spe) <- colData(spe) |>
     DataFrame()
 colnames(spe) <- temp
 
+#   Quickly check k = 8 results
+for (cluster_var in c('precast_k8_stitched', 'precast_k8_unstitched')) {
+    p = vis_clus(spe, clustervar = cluster_var, is_stitched = TRUE)
+    pdf(file.path(plot_dir, sprintf("%s.pdf", cluster_var)))
+    print(p)
+    dev.off()
+}
+
 ################################################################################
 #   Agreement of PRECAST clusters at overlaps
 ################################################################################
